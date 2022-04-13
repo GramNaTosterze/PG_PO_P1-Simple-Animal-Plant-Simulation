@@ -11,9 +11,10 @@ using namespace std;
 
 int main () {
     int a;
+    srand(time(NULL));
 
     World world(BOARDX,BOARDY,1);
-    world.addOrganism(new Human(10,10,{2,2},world.getCanvas(),CZLOWIEK));
+    world.addOrganism(new Human({2,2},world.getCanvas()));
     while(true) {
         world.drawWorld();
         world.makeATurn();

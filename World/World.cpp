@@ -14,8 +14,6 @@ void World::makeATurn() {
         organisms[i]->action();
         organisms[i]->draw();
     }
-
-
     //czyszczenie konsoli
     cout << "\x1B[2J\x1B[H";
 }

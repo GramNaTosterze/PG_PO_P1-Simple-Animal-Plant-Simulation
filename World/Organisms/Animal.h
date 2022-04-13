@@ -14,6 +14,7 @@ class Animal : public Organism {
     Animal();
     Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol);
     void action();
+    void move(int x, int y);
     void colision();
     void draw();
 

@@ -1,8 +1,7 @@
 #pragma once
+#include "Animal.h"
 
-#include "../Animal.h"
-
-class Human : public Animal {
+class Turtle : public Animal {
     private:
     unsigned int strength;
     int initiative;
@@ -10,10 +9,8 @@ class Human : public Animal {
     Canvas* world;
     char symbol;
     public:
-    Human(Pos position, Canvas *canvas);
-    void action();
+    Turtle(Pos position, Canvas *canvas);
+    void actions();
     void colision();
-    void draw();
-
-    ~Human();
+    ~Turtle();
 };

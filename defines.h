@@ -11,3 +11,9 @@ enum {
     ANTYLOPA = '/',
     CYBER_OWCA = '~',
 };
+enum DIRECTIONS {
+    UP=0,
+    DOWN,
+    LEFT,
+    RIGHT,
+};

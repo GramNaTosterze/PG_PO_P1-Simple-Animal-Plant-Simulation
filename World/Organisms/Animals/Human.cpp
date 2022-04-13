@@ -2,7 +2,7 @@
 #include "Human.h"
 #include "../../../defines.h"
 using namespace std;
-Human::Human(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol) : strength(strength), initiative(initiative), position(position), world(canvas), symbol(symbol) {}
+Human::Human(Pos position, Canvas *canvas) : strength(5), initiative(4), position(position), world(canvas), symbol(CZLOWIEK) {}
 void Human::action() {
     char p;
     cin>>p;
