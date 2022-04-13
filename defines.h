@@ -1,7 +1,7 @@
 #pragma once
 
-#define boardX 10
-#define boardY 10
+#define BOARDX 10
+#define BOARDY 10
 enum {
     CZLOWIEK = '&',
     WILK = '#',

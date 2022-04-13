@@ -3,18 +3,18 @@
 #include "Organism.h"
 #include "../Canvas.h"
 
-class Roslina : public Organism {
+class Plant : public Organism {
     private:
-    unsigned int sila;
-    int inicjatywa;
-    Pos polozenie;
-    char** swiat;
-    char symbol;
+    unsigned int strength;
+    int initiative;
+    Pos position;
+    char** world;
+    Canvas* symbol;
     public:
-    Roslina(unsigned int sila, int inicjatywa, Pos polozenie, char** plutno, char symbol);
-    void akcja();
-    void kolizja();
-    void rysowanie();
+    Plant(unsigned int strength, int initiative, Pos position, Canvas* canvas, char symbol);
+    void action();
+    void colision();
+    void draw();
 
-    ~Roslina();
+    ~Plant();
 };

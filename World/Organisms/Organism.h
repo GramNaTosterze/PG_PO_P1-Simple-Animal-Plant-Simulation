@@ -9,13 +9,13 @@ class Organism {
     unsigned int strength;
     int initiative;
     Pos position;
-    Canvas** world;
+    Canvas* world;
     char symbol;
     public:
-    Organism();
-    Organism(unsigned int strength, int initiative, Pos position, Canvas** canvas, char symbol);
+    //Organism();
+    //Organism(unsigned int strength, int initiative, Pos position, Canvas* canvas, char symbol);
     virtual void action() = 0;
     virtual void colision() = 0;
     virtual void draw() = 0;
-    ~Organism();
+    //~Organism();
 };
