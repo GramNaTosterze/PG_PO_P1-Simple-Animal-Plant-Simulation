@@ -6,10 +6,14 @@
             "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/main",
+                "${fileDirname}/main.cpp",
+                "${fileDirname}/World/World.cpp",
+                "${fileDirname}/World/Canvas.cpp",
+                "${fileDirname}/World/Organisms/Plant.cpp",
+                "${fileDirname}/World/Organisms/Animal.cpp",
+                "${fileDirname}/World/Organisms/Animals/Human.cpp"
             ],
             "options": {
                 "cwd": "${fileDirname}"

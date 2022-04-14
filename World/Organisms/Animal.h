@@ -13,10 +13,10 @@ class Animal : public Organism {
     public:
     Animal();
     Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol);
-    void action();
+    void action() override;
     void move(int x, int y);
-    void colision();
-    void draw();
+    void colision() override;
+    void draw() override;
 
     ~Animal();
 };

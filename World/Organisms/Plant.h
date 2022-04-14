@@ -12,9 +12,9 @@ class Plant : public Organism {
     Canvas* symbol;
     public:
     Plant(unsigned int strength, int initiative, Pos position, Canvas* canvas, char symbol);
-    void action();
-    void colision();
-    void draw();
+    void action() override;
+    void colision() override;
+    void draw() override;
 
     ~Plant();
 };

@@ -8,7 +8,7 @@ Canvas::Canvas(unsigned int X, unsigned int Y) : X(X), Y(Y), board(new char*[X])
 
     for(int i = 0; i < X; i++)
         for(int j = 0; j < Y; j++)
-            board[i][j] = '_';
+            board[i][j] = ' ';
 }
 unsigned int Canvas::getX() {
     return X;

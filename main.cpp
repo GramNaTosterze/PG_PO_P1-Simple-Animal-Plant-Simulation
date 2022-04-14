@@ -10,7 +10,6 @@
 using namespace std;
 
 int main () {
-    int a;
     srand(time(NULL));
 
     World world(BOARDX,BOARDY,1);

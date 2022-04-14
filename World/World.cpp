@@ -15,10 +15,11 @@ void World::makeATurn() {
         organisms[i]->draw();
     }
     //czyszczenie konsoli
-    cout << "\x1B[2J\x1B[H";
+    system("clear");
+    //cout << "\x1B[2J\x1B[H";
 }
 void World::drawWorld() {
-    cout<<"Liczba Organizmów: "<<0<<'\n';
+    cout<<"Liczba Organizmów: "<<organisms.size()<<'\n';
     canvas->draw();
 }
 Canvas* World::getCanvas() {

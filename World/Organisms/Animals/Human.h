@@ -11,9 +11,8 @@ class Human : public Animal {
     char symbol;
     public:
     Human(Pos position, Canvas *canvas);
-    void action();
-    void colision();
-    void draw();
+    void action() override;
+    void colision() override;
 
     ~Human();
 };

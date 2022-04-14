@@ -1,5 +1,5 @@
 #pragma once
-#include "Animal.h"
+#include "../Animal.h"
 
 class Fox : public Animal {
     private:
@@ -10,6 +10,6 @@ class Fox : public Animal {
     char symbol;
     public:
     Fox(Pos position, Canvas *canvas);
-    void action();
+    void action() override;
     ~Fox();
 };

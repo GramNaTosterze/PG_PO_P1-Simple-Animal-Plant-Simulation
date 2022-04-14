@@ -5,6 +5,8 @@ using namespace std;
 Human::Human(Pos position, Canvas *canvas) : strength(5), initiative(4), position(position), world(canvas), symbol(CZLOWIEK) {}
 void Human::action() {
     char p;
+    cin.clear();
+    cin.ignore(10000, '\n');
     cin>>p;
     switch(p) {
         case 'w': {
@@ -32,7 +34,4 @@ void Human::action() {
 }
 void Human::colision() {
     
-}
-void Human::draw() {
-    world->set(position,symbol);
 }

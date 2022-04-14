@@ -10,24 +10,25 @@ void Animal::action() {
     DIRECTIONS direction = DIRECTIONS(rand()%4);
     switch(direction){
         case UP: {
-            move(-1,0);
-            return;
-        }
-        case DOWN: {
-            move(1,0);
-            return;
-        }
-        case LEFT: {
             move(0,-1);
             return;
         }
-        case RIGHT: {
+        case DOWN: {
             move(0,1);
+            return;
+        }
+        case LEFT: {
+            move(-1,0);
+            return;
+        }
+        case RIGHT: {
+            move(1,0);
             return;
         }
     }
 }
 void Animal::move(int x, int y) {
+    world->set(position,'_');
     position.x =+ x;
     position.y =+ y;
 }
