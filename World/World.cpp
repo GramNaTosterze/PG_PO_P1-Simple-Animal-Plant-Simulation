@@ -12,7 +12,6 @@ void World::addOrganism(Plant* n) {
 void World::makeATurn() {
     for(int i = 0; i < organisms.size(); i++) {
         organisms[i]->action();
-        organisms[i]->draw();
     }
     //czyszczenie konsoli
     system("clear");

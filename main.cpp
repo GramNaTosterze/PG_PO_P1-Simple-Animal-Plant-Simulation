@@ -5,6 +5,8 @@
 #include "World/Organisms/Animal.h"
 
 #include "World/Organisms/Animals/Human.h"
+#include "World/Organisms/Animals/Wolf.h"
+#include "World/Organisms/Animals/Sheep.h"
 #include "defines.h"
 
 using namespace std;
@@ -13,7 +15,12 @@ int main () {
     srand(time(NULL));
 
     World world(BOARDX,BOARDY,1);
+
     world.addOrganism(new Human({2,2},world.getCanvas()));
+    world.addOrganism(new Wolf({5,5},world.getCanvas()));
+    world.addOrganism(new Sheep({6,3},world.getCanvas()));
+
+
     while(true) {
         world.drawWorld();
         world.makeATurn();

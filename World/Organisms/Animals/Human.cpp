@@ -2,31 +2,28 @@
 #include "Human.h"
 #include "../../../defines.h"
 using namespace std;
-Human::Human(Pos position, Canvas *canvas) : strength(5), initiative(4), position(position), world(canvas), symbol(CZLOWIEK) {}
+Human::Human(Pos position, Canvas *canvas) : Animal(5,4,position,canvas,HUMAN) {}
 void Human::action() {
+    world->set(position,this);
     char p;
     cin.clear();
     cin.ignore(10000, '\n');
     cin>>p;
     switch(p) {
         case 'w': {
-            if(position.y > 0)
-                position.y--;
+            move(0,1);
             return;
         }
         case 's': {
-            if(position.y > BOARDY)
-                position.y++;
+            move(0,-1);
             return;
         }
         case 'a': {
-            if(position.x > 0)
-                position.x--;
+            move(-1,0);
             return;
         }
         case 'd': {
-            if(position.x > BOARDX)
-                position.x++;
+            move(1,0);
             return;
         }
 

@@ -1,15 +1,15 @@
 #pragma once
 
-#define BOARDX 10
+#define BOARDX 100
 #define BOARDY 10
 enum {
-    CZLOWIEK = '&',
-    WILK = '#',
-    OWCA = '-',
-    LIS = '!',
-    ZOLW = '@',
-    ANTYLOPA = '/',
-    CYBER_OWCA = '~',
+    HUMAN = '&',
+    WOLF = '#',
+    SHEEP = '-',
+    FOX = '!',
+    TURTLE = '@',
+    ANTELOPE = '/',
+    CYBER_SHEEP = '~',
 };
 enum DIRECTIONS {
     UP=0,
