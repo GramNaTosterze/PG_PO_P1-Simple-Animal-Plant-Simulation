@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Organism.h"
+#include "../../defines.h"
 
 class Animal : public Organism {
     protected:
@@ -11,6 +12,7 @@ class Animal : public Organism {
     unsigned int getStrength() const override;
     unsigned int getInitiative() const override;
     unsigned int getAge() const override;
+    void setPosition(Pos pos);
     void action() override;
     void move(int x, int y);
     void colision(Animal* other) override;

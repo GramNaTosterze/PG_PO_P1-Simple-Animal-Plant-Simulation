@@ -5,5 +5,5 @@ class Turtle : public Animal {
     public:
     Turtle(Pos position, Canvas *canvas);
     void action() override;
-    void colision() override;
+    void colision(Animal* other) override;
 };

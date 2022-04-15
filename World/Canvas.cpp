@@ -2,6 +2,7 @@
 #include "Canvas.h"
 #include "Organisms/Plant.h"
 #include "Organisms/Animal.h"
+#include "../defines.h"
 
 using namespace std;
 
@@ -19,6 +20,18 @@ Organism* Canvas::operator[] (unsigned int i) {
 Organism* Canvas::operator[] (Pos pos) {
     return board[pos.y][pos.x];
 }
+Pos Canvas::findEmpty(Pos pos) {
+    if(board[pos.y+1][pos.x] == nullptr)
+        return {pos.x,pos.y+1};
+    if(board[pos.y-1][pos.x] == nullptr)
+        return {pos.x,pos.y-1};
+    if(board[pos.y][pos.x+1] == nullptr)
+        return {pos.x+1,pos.y};
+    if(board[pos.y][pos.x-1] == nullptr)
+        return {pos.x-1,pos.y+1};
+    
+    return {-1,-1};
+}
 OrganismTable& Canvas::organismsTable() {
     return organisms;
 }
@@ -30,6 +43,7 @@ unsigned int Canvas::getY() {
 }
 void Canvas::set(Pos pos, Animal* organism) {
     board[pos.y][pos.x] = organism;
+    //organism->setPosition(pos);
 }
 void Canvas::set(Pos pos, Plant* organism) {
     board[pos.y][pos.x] = organism;

@@ -19,6 +19,7 @@ class Canvas {
     OrganismTable& organismsTable();
     Organism* operator[] (unsigned int i);
     Organism* operator[] (Pos pos);
+    Pos findEmpty(Pos pos);
     unsigned int getX();
     unsigned int getY();
     void set(Pos pos, Animal* organism);

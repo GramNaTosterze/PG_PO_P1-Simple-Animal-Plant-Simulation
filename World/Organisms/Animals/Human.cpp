@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Human.h"
-#include "../../../defines.h"
+
 using namespace std;
 Human::Human(Pos position, Canvas *canvas) : Animal(5,4,position,canvas,HUMAN) {}
 void Human::action() {

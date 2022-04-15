@@ -16,6 +16,9 @@ unsigned int Animal::getInitiative() const {
 unsigned int Animal::getAge() const {
     return age;
 }
+void Animal::setPosition(Pos pos) {
+    this->position = pos;
+}
 void Animal::action() {
     DIRECTIONS direction = STAY;//DIRECTIONS(rand()%4);
     switch(direction){
@@ -46,9 +49,9 @@ void Animal::move(int x, int y) {
         newPos.y = position.y + y;
 
 //jakiś pomysł był
-    position = newPos;
+    this->setPosition(newPos);
     if((*world)[newPos] == nullptr)
-        world->set(position,this);
+        world->set(newPos,this);
     else
         (*world)[newPos]->colision(this);
 }
