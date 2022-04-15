@@ -23,7 +23,7 @@ void Animal::setPosition(Pos pos) {
     this->position = pos;
 }
 void Animal::action() {
-    DIRECTIONS direction = STAY;//DIRECTIONS(rand()%4);
+    DIRECTIONS direction = LEFT;//DIRECTIONS(rand()%4);
     switch(direction){
         case UP: {
             move(0,-1);
