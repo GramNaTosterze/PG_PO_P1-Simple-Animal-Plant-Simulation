@@ -15,7 +15,7 @@ class Animal : public Organism {
     Pos getPosition() const;
     void setPosition(Pos pos);
     void action() override;
-    void move(int x, int y);
+    virtual void move(int x, int y);
     void colision(Animal* other) override;
     void colision(Plant* other) override;
     char draw() override;

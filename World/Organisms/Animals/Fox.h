@@ -4,5 +4,5 @@
 class Fox : public Animal {
     public:
     Fox(Pos position, Canvas *canvas);
-    void action() override;
+    void move(int x, int y) override;
 };

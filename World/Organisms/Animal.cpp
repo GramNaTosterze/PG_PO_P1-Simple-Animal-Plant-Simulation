@@ -51,7 +51,6 @@ void Animal::move(int x, int y) {
     if(position.y+y >= 0 && position.y+y < BOARDY)
         newPos.y = position.y + y;
 
-//jakiś pomysł był
     if((*world)[newPos] == nullptr) {
         setPosition(newPos);  
         world->set(newPos,this);
