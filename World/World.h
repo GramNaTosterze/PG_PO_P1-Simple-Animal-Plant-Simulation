@@ -9,8 +9,7 @@ class World {
     Canvas* canvas;
     public:
     World(unsigned int X, unsigned int Y, unsigned int n);
-    void addOrganism(Animal* n);
-    void addOrganism(Plant* n);
+    void addOrganism(Organism* n);
     void makeATurn();
     void drawWorld();
     Canvas* getCanvas();

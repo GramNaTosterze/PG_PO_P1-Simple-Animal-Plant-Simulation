@@ -3,10 +3,8 @@
 using namespace std;
 
 World::World(unsigned int X, unsigned int Y, unsigned int n) :canvas(new Canvas(X,Y)){}
-void World::addOrganism(Animal* n) {
+void World::addOrganism(Organism* n) {
     canvas->organismsTable().add(n);
-}
-void World::addOrganism(Plant* n) {
 }
 void World::makeATurn() {
     canvas->organismsTable().makeActions();

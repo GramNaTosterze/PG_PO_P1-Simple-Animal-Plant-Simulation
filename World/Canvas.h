@@ -22,8 +22,7 @@ class Canvas {
     Pos findEmpty(Pos pos);
     unsigned int getX();
     unsigned int getY();
-    void set(Pos pos, Animal* organism);
-    void set(Pos pos, Plant* organism);
+    void set(Pos pos, Organism* organism);
     void check_colision();
     void draw();
 };

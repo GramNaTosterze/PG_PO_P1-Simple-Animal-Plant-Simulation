@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <time.h>
 
-Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol) : Organism(strength,position,canvas,symbol), initiative(initiative), age(0) {
+Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol) : Organism(strength,initiative,position,canvas,symbol), age(0) {
     world->set(position,this);
 }
 unsigned int Animal::getStrength() const {

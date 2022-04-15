@@ -12,7 +12,7 @@ class OrganismTable {
     void makeActions();
     Organism* operator[](unsigned int i);
     void remove(Organism* toRemove);
-    void add(Animal* a);
+    void add(Organism* a);
     void sort(int l, int p);
     unsigned int size();
 };

@@ -41,12 +41,9 @@ unsigned int Canvas::getX() {
 unsigned int Canvas::getY() {
     return Y;
 }
-void Canvas::set(Pos pos, Animal* organism) {
+void Canvas::set(Pos pos, Organism* organism) {
     board[pos.y][pos.x] = organism;
     //organism->setPosition(pos);
-}
-void Canvas::set(Pos pos, Plant* organism) {
-    board[pos.y][pos.x] = organism;
 }
 void Canvas::check_colision() {
 

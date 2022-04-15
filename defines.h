@@ -10,6 +10,8 @@ enum {
     TURTLE = '@',
     ANTELOPE = '/',
     CYBER_SHEEP = '~',
+
+    GRASS = '.',
 };
 enum DIRECTIONS {
     UP=0,

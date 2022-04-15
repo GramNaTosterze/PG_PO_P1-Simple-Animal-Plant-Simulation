@@ -26,11 +26,10 @@ void OrganismTable::remove(Organism* toRemove) {
     delete toRemove;
     //sort(0,currentSize);
 }
-void OrganismTable::add(Animal* a) {
+void OrganismTable::add(Organism* a) {
     table[currentSize] = a;
     currentSize++;
     //sort(0,currentSize);
-
 }
 void OrganismTable::sort(int l, int r) {
     if(r <= l)
