@@ -4,7 +4,9 @@
 #include <cstdlib>
 #include <time.h>
 
-Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol) : Organism(strength,position,canvas,symbol), initiative(initiative), age(0) {}
+Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol) : Organism(strength,position,canvas,symbol), initiative(initiative), age(0) {
+    world->set(position,this);
+}
 unsigned int Animal::getStrength() const {
     return strength;
 }
@@ -15,7 +17,7 @@ unsigned int Animal::getAge() const {
     return age;
 }
 void Animal::action() {
-    DIRECTIONS direction = DIRECTIONS(rand()%4);
+    DIRECTIONS direction = STAY;//DIRECTIONS(rand()%4);
     switch(direction){
         case UP: {
             move(0,-1);
@@ -42,16 +44,23 @@ void Animal::move(int x, int y) {
         newPos.x = position.x + x;
     if(position.y+y >= 0 && position.y+y < BOARDY)
         newPos.y = position.y + y;
+
+//jakiś pomysł był
+    position = newPos;
     if((*world)[newPos] == nullptr)
         world->set(position,this);
     else
         (*world)[newPos]->colision(this);
 }
 void Animal::colision(Animal* other) {
-    if(this->strength > other->getStrength())
+    if(this->strength > other->getStrength()) {
         world->set(position,this);
-    else
+        world->organismsTable().remove(other);
+    }
+    else {
         world->set(position,other);
+        world->organismsTable().remove(this);
+    }
 }
 void Animal::colision(Plant* other) {
 

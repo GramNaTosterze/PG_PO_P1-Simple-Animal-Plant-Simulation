@@ -29,6 +29,9 @@ void Human::action() {
 
     }
 }
-void Human::colision() {
+void Human::colision(Animal* other) {
+    Animal::colision(other);
+}
+void Human::colision(Plant* other) {
     
 }

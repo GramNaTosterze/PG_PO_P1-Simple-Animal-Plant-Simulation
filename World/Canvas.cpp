@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Canvas::Canvas(unsigned int X, unsigned int Y) : X(X), Y(Y), board(new Organism**[X]){
+Canvas::Canvas(unsigned int X, unsigned int Y) : X(X), Y(Y), board(new Organism**[X]), organisms(X*Y){
     for(int i = 0; i < Y; i++)
         board[i] = new Organism*[X];
 
@@ -13,8 +13,14 @@ Canvas::Canvas(unsigned int X, unsigned int Y) : X(X), Y(Y), board(new Organism*
         for(int j = 0; j < X; j++)
             board[i][j] = nullptr;
 }
+Organism* Canvas::operator[] (unsigned int i) {
+    return organisms[i];
+}
 Organism* Canvas::operator[] (Pos pos) {
-    return board[pos.x][pos.y];
+    return board[pos.y][pos.x];
+}
+OrganismTable& Canvas::organismsTable() {
+    return organisms;
 }
 unsigned int Canvas::getX() {
     return X;

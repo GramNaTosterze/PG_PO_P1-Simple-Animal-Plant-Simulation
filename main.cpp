@@ -18,6 +18,8 @@ int main () {
 
     world.addOrganism(new Human({2,2},world.getCanvas()));
     world.addOrganism(new Wolf({10,10},world.getCanvas()));
+    world.addOrganism(new Wolf({12,10},world.getCanvas()));
+    world.addOrganism(new Wolf({15,10},world.getCanvas()));
     world.addOrganism(new Sheep({15,12},world.getCanvas()));
 
 
