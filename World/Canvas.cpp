@@ -13,6 +13,9 @@ Canvas::Canvas(unsigned int X, unsigned int Y) : X(X), Y(Y), board(new Organism*
         for(int j = 0; j < X; j++)
             board[i][j] = nullptr;
 }
+Organism* Canvas::operator[] (Pos pos) {
+    return board[pos.x][pos.y];
+}
 unsigned int Canvas::getX() {
     return X;
 }

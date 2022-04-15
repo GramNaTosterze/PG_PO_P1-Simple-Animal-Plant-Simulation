@@ -16,5 +16,6 @@ class World {
     void makeATurn();
     void drawWorld();
     Canvas* getCanvas();
+    void sort(int l ,int r);
     ~World();
 };

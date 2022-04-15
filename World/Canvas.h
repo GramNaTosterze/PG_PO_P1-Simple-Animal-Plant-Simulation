@@ -12,6 +12,7 @@ class Canvas {
     unsigned int X,Y;
     public:
     Canvas(unsigned int X, unsigned int Y);
+    Organism* operator[] (Pos pos);
     unsigned int getX();
     unsigned int getY();
     void set(Pos pos, Animal* organism);

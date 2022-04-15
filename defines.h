@@ -1,7 +1,7 @@
 #pragma once
 
-#define BOARDX 100
-#define BOARDY 10
+#define BOARDX 20
+#define BOARDY 20
 enum {
     HUMAN = '&',
     WOLF = '#',
@@ -16,4 +16,5 @@ enum DIRECTIONS {
     DOWN,
     LEFT,
     RIGHT,
+    STAY,
 };

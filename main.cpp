@@ -17,8 +17,8 @@ int main () {
     World world(BOARDX,BOARDY,1);
 
     world.addOrganism(new Human({2,2},world.getCanvas()));
-    world.addOrganism(new Wolf({5,5},world.getCanvas()));
-    world.addOrganism(new Sheep({6,3},world.getCanvas()));
+    world.addOrganism(new Wolf({10,10},world.getCanvas()));
+    world.addOrganism(new Sheep({15,12},world.getCanvas()));
 
 
     while(true) {
