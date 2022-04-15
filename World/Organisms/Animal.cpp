@@ -16,6 +16,9 @@ unsigned int Animal::getInitiative() const {
 unsigned int Animal::getAge() const {
     return age;
 }
+Pos Animal::getPosition() const{
+    return position;
+}
 void Animal::setPosition(Pos pos) {
     this->position = pos;
 }
@@ -49,19 +52,22 @@ void Animal::move(int x, int y) {
         newPos.y = position.y + y;
 
 //jakiś pomysł był
-    this->setPosition(newPos);
-    if((*world)[newPos] == nullptr)
+    if((*world)[newPos] == nullptr) {
+        setPosition(newPos);  
         world->set(newPos,this);
+    }
     else
         (*world)[newPos]->colision(this);
 }
 void Animal::colision(Animal* other) {
     if(this->strength > other->getStrength()) {
         world->set(position,this);
+        this->setPosition(position);
         world->organismsTable().remove(other);
     }
     else {
         world->set(position,other);
+        other->setPosition(position);
         world->organismsTable().remove(this);
     }
 }

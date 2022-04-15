@@ -4,7 +4,6 @@
 using namespace std;
 Human::Human(Pos position, Canvas *canvas) : Animal(5,4,position,canvas,HUMAN) {}
 void Human::action() {
-    //world->set(position,this);
     char p;
     cin.clear();
     cin.ignore(10000, '\n');

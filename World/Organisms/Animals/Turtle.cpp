@@ -7,7 +7,7 @@ void Turtle::action() {
 }
 void Turtle::colision(Animal* other) {
     if(other->getStrength() < 5)
-        return;
+        world->set(other->getPosition(),other);
     else
         Animal::colision(other);
 }

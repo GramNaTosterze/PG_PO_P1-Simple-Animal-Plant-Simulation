@@ -12,6 +12,7 @@ class Animal : public Organism {
     unsigned int getStrength() const override;
     unsigned int getInitiative() const override;
     unsigned int getAge() const override;
+    Pos getPosition() const;
     void setPosition(Pos pos);
     void action() override;
     void move(int x, int y);
