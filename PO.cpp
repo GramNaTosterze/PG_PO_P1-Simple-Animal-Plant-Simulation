@@ -13,6 +13,7 @@
 #include "World/Organisms/Animals/CyberSheep.h"
 
 #include "World/Organisms/Plants/Grass.h"
+#include "World/Organisms/Plants/Dandelion.h"
 #include "defines.h"
 
 using namespace std;
@@ -30,7 +31,8 @@ int main () {
     world.addOrganism(new Fox({11,10},world.getCanvas()));
     world.addOrganism(new Sheep({15,12},world.getCanvas()));
 //przykładowe rośliny można wywalić do klasy World dodatkowo
-    world.addOrganism(new Grass({1,1},world.getCanvas()));
+    world.addOrganism(new Grass({0,0},world.getCanvas()));
+    world.addOrganism(new Dandelion({4,4},world.getCanvas()));
 
 
     while(true) {

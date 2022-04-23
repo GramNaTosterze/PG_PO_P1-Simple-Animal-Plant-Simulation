@@ -20,17 +20,27 @@ Organism* Canvas::operator[] (unsigned int i) {
 Organism* Canvas::operator[] (Pos pos) {
     return board[pos.y][pos.x];
 }
-Pos Canvas::findEmpty(Pos pos) {
-    if(board[pos.y+1][pos.x] == nullptr)
-        return {pos.x,pos.y+1};
-    if(board[pos.y-1][pos.x] == nullptr)
-        return {pos.x,pos.y-1};
-    if(board[pos.y][pos.x+1] == nullptr)
-        return {pos.x+1,pos.y};
-    if(board[pos.y][pos.x-1] == nullptr)
-        return {pos.x-1,pos.y+1};
-    
-    return {-1,-1};
+Pos Canvas::nextPos(Pos pos) {
+    DIRECTIONS direction = DIRECTIONS(rand()%4);
+    switch(direction) {
+        case UP: {
+            if(pos.y+1 != BOARDY && board[pos.y+1][pos.x] == nullptr)
+                return {pos.x,pos.y+1};
+        }
+        case DOWN: {
+            if(pos.y-1 != -1 && board[pos.y-1][pos.x] == nullptr)
+                return {pos.x,pos.y-1};
+        }
+        case LEFT: {
+            if(pos.x+1 != BOARDX && board[pos.y][pos.x+1] == nullptr)
+                return {pos.x+1,pos.y};
+        }
+        case RIGHT: {
+            if(pos.x-1 != -1 && board[pos.y][pos.x-1] == nullptr)
+                return {pos.x-1,pos.y};
+        }
+    }
+    return EMPTY_POS;
 }
 OrganismTable& Canvas::organismsTable() {
     return organisms;
@@ -43,16 +53,16 @@ unsigned int Canvas::getY() {
 }
 void Canvas::set(Pos pos, Organism* organism) {
     board[pos.y][pos.x] = organism;
-    //organism->setPosition(pos);
-}
-void Canvas::check_colision() {
-
 }
 void Canvas::draw() {
     unsigned int x = getX(), y = getY();
-    for(int i = 0; i < y; i++) {
-        for( int j = 0; j < x; j++)
-            cout<<(board[i][j] != nullptr ? board[i][j]->draw() : '_');
+    for(int i = 0; i <= y+1; i++) {
+        for( int j = 0; j <= x+1; j++) {
+            if(i == 0 || i == y+1 || j == 0 || j == x+1)
+                cout<<"#";
+            else
+                cout<<(board[i-1][j-1] != nullptr ? board[i-1][j-1]->draw() : ' ');
+        }
         cout<<'\n';
     }
 }

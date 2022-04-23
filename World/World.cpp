@@ -10,7 +10,6 @@ void World::makeATurn() {
     canvas->organismsTable().makeActions();
     //czyszczenie konsoli
     system("clear");
-    //cout << "\x1B[2J\x1B[H";
 }
 void World::drawWorld() {
     cout<<"Liczba Organizmów: "<<canvas->organismsTable().size()<<'\n';

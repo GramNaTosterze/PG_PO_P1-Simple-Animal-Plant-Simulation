@@ -2,9 +2,10 @@
 
 #define BOARDX 20
 #define BOARDY 20
+#define EMPTY_POS {-1,-1}
 enum {
     HUMAN = '&',
-    WOLF = '#',
+    WOLF = '^',
     SHEEP = '-',
     FOX = '!',
     TURTLE = '@',
@@ -12,6 +13,7 @@ enum {
     CYBER_SHEEP = '~',
 
     GRASS = '.',
+    DANDELION = '*',
 };
 enum DIRECTIONS {
     UP=0,

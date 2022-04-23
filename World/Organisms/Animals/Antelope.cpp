@@ -25,7 +25,7 @@ void Antelope::action() {
 }
 void Antelope::colision(Animal* other) {
     if(rand()%2) {
-        world->set(world->findEmpty(position),this);
+        world->set(world->nextPos(position),this);
     }
     else
         Animal::colision(other);
