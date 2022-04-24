@@ -3,7 +3,8 @@
 
 class Antelope : public Animal {
     public:
-    Antelope(Pos position, Canvas *canvas);
+    Antelope(Pos, Canvas*, Info*);
+    string getName() const override;
     void action() override;
-    void colision(Animal* other) override;
+    void colision(Animal*) override;
 };

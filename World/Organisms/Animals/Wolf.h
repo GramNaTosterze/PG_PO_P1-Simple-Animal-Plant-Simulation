@@ -3,5 +3,6 @@
 
 class Wolf : public Animal {
     public:
-    Wolf(Pos position, Canvas *canvas);
+    Wolf(Pos, Canvas*, Info*);
+    string getName() const override;
 };

@@ -3,5 +3,6 @@
 
 class Sheep : public Animal {
     public:
-    Sheep(Pos position, Canvas *canvas);
+    Sheep(Pos, Canvas*, Info*);
+    string getName() const override;
 };

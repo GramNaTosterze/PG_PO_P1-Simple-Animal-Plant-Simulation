@@ -1,7 +1,8 @@
 
 #include "Fox.h"
 
-Fox::Fox(Pos position, Canvas *canvas): Animal(3,7,position,canvas,FOX) {}
+Fox::Fox(Pos position, Canvas *canvas, Info* info): Animal(3,7,position,canvas,FOX,info) {}
+string Fox::getName() const{return "Lisek";}
 void Fox::move(int x, int y) {
     world->set(position,(Animal*)nullptr);
     Pos newPos = position;

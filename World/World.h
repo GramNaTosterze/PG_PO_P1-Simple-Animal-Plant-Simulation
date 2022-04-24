@@ -1,4 +1,6 @@
 #pragma once
+
+#include "Info.h"
 #include "Organisms/Organism.h"
 #include "Organisms/Animal.h"
 #include "Organisms/Plant.h"
@@ -7,12 +9,14 @@ using namespace std;
 class World {
     private:
     Canvas* canvas;
+    Info info;
     public:
-    World(unsigned int X, unsigned int Y, unsigned int n);
-    void addOrganism(Organism* n);
+    World(unsigned int, unsigned int, unsigned int);
+    void addOrganism(Organism*);
     void makeATurn();
     void drawWorld();
     Canvas* getCanvas();
-    void sort(int l ,int r);
+    Info* getInfo();
+    void sort(int,int);
     ~World();
 };

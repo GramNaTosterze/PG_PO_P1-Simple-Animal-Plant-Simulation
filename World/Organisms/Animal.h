@@ -6,17 +6,21 @@ class Animal : public Organism {
     protected:
     unsigned int age;
     public:
-    Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol);
+    Animal(unsigned int, int, Pos, Canvas*, char,Info*);
     unsigned int getStrength() const override;
     unsigned int getInitiative() const override;
     unsigned int getAge() const;
-    Pos getPosition() const;
-    void setPosition(Pos pos);
+    string getName() const override;
+    Pos getPosition() const override;
+    void setPosition(Pos) override;
+    void setStrength(unsigned int);
     void action() override;
-    virtual void move(int x, int y);
-    void colision(Animal* other) override;
-    void colision(Plant* other) override;
+    virtual void move(int, int);
+    void colision(Animal*) override;
+    void colision(Plant*) override;
     char draw() override;
+    void replace(Organism*,Organism*) override;
+
 
     ~Animal();
 };

@@ -3,10 +3,11 @@
 
 class Human : public Animal {
     public:
-    Human(Pos position, Canvas *canvas);
+    Human(Pos, Canvas*, Info*);
+    string getName() const override;
     void action() override;
-    void colision(Animal* other) override;
-    void colision(Plant* other) override;
+    void colision(Animal*) override;
+    void colision(Plant*) override;
 
     ~Human();
 };

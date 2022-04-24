@@ -3,7 +3,8 @@
 
 class Turtle : public Animal {
     public:
-    Turtle(Pos position, Canvas *canvas);
+    Turtle(Pos, Canvas *, Info*);
+    string getName() const override;
     void action() override;
-    void colision(Animal* other) override;
+    void colision(Animal*) override;
 };

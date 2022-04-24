@@ -3,6 +3,7 @@
 
 class Fox : public Animal {
     public:
-    Fox(Pos position, Canvas *canvas);
-    void move(int x, int y) override;
+    Fox(Pos, Canvas*, Info*);
+    string getName() const override;
+    void move(int, int) override;
 };

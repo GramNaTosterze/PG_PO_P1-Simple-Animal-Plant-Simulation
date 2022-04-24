@@ -1,11 +1,13 @@
 
 #include "CyberSheep.h"
 
-CyberSheep::CyberSheep(Pos position, Canvas *canvas): Sheep(position,canvas) {}
-
-void action() {
-    //Sheep::Animal::action();
+CyberSheep::CyberSheep(Pos position, Canvas *canvas, Info*): Sheep(position,canvas,info) {
+    setStrength(11);
 }
-void colision(Plant* other) {
-    //Sheep::colision(other);
+string CyberSheep::getName() const{return "Cyber owca";}
+void CyberSheep::action() {
+    Sheep::action();
+}
+void CyberSheep::colision(Plant* other) {
+    Sheep::colision(other);
 }

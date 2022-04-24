@@ -1,4 +1,5 @@
-#include <iostream>
+
+#include <ncurses.h>
 #include "Canvas.h"
 #include "Organisms/Plant.h"
 #include "Organisms/Animal.h"
@@ -59,10 +60,17 @@ void Canvas::draw() {
     for(int i = 0; i <= y+1; i++) {
         for( int j = 0; j <= x+1; j++) {
             if(i == 0 || i == y+1 || j == 0 || j == x+1)
-                cout<<"#";
-            else
-                cout<<(board[i-1][j-1] != nullptr ? board[i-1][j-1]->draw() : ' ');
+                printw("#");
+            else {
+                if(board[i-1][j-1] != nullptr) {
+                    const char c[1] = {board[i-1][j-1]->draw()};
+                    printw(c);
+                }
+                else
+                    printw(" ");
+            }
         }
-        cout<<'\n';
+        printw("\n");
     }
+    refresh();
 }

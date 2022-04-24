@@ -3,7 +3,8 @@
 
 class CyberSheep : public Sheep {
     public:
-    CyberSheep(Pos position, Canvas *canvas);
+    CyberSheep(Pos, Canvas*, Info*);
+    string getName() const override;
     void action() override;
-    void colision(Plant* other) override;
+    void colision(Plant*) override;
 };

@@ -3,7 +3,7 @@
 
 class Dandelion : public Plant{
     public:
-    Dandelion(Pos position, Canvas* canvas);
+    Dandelion(Pos, Canvas*, Info*);
     void action() override;
-    void addInstanceOf(Pos pos);
+    void addInstanceOf(Pos);
 };

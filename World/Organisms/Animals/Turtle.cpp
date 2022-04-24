@@ -1,9 +1,9 @@
 
 #include <cstdlib>
 #include "Turtle.h"
-Turtle::Turtle(Pos position, Canvas *canvas): Animal(2,1,position,canvas,TURTLE) {}
+Turtle::Turtle(Pos position, Canvas *canvas, Info* info): Animal(2,1,position,canvas,TURTLE,info) {}
+string Turtle::getName() const{return "Zolw";}
 void Turtle::action() {
-    //szansa tylko, zmianić składnie poza randem do
     if(rand()%4 == 3)
         Animal::action();
 }

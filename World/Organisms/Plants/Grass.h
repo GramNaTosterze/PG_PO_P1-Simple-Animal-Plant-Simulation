@@ -3,6 +3,6 @@
 
 class Grass : public Plant{
     public:
-    Grass(Pos position, Canvas* canvas);
-    void addInstanceOf(Pos pos) override;
+    Grass(Pos, Canvas*,Info*);
+    void addInstanceOf(Pos) override;
 };
