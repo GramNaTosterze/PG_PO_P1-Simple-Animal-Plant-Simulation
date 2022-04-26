@@ -1,7 +1,7 @@
 
 #include "Plant.h"
 
-Plant::Plant(unsigned int strength, Pos position, Canvas* canvas, char symbol): Organism(strength,0,position,canvas,symbol){
+Plant::Plant(unsigned int strength, Pos position, Canvas* canvas, char symbol): Organism(strength,0,position,canvas,symbol), age(0){
     world->set(position,this);
 }
 unsigned int Plant::getStrength() const {return strength;}

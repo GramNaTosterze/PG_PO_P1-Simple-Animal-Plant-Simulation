@@ -14,8 +14,8 @@ class World {
     void makeATurn();
     void drawWorld();
     Canvas* getCanvas();
-    void save();
-    void load();
+    void save(int&);
+    void load(int&);
     void sort(int,int);
     ~World();
 };

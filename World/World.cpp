@@ -18,9 +18,9 @@ void World::makeATurn() {
             for(int i = 0; i < canvas->organismsTable().size(); i++)
                 (*canvas)[i]->action();
         else if (input == SAVE)
-            save();
+            save(input);
         else if (input == LOAD)
-            load();
+            load(input);
     }
 }
 void World::drawWorld() {
@@ -29,18 +29,25 @@ void World::drawWorld() {
 Canvas* World::getCanvas() {
     return canvas;
 }
-void World::save() {
-    int input = -1;
-    while(input < 1 && input > 3) {
+void World::save(int& input) {
+    //while(input < 1 && input > 3) {
         clear();
         printw("slot(1-3)");
         refresh();
-        int input = getch();
-    }
-    canvas->organismsTable().save();
+        input = getch();
+    //}
+    canvas->organismsTable().save(input);
+    input = NEXT_TURN;
 }
-void World::load() {
-
+void World::load(int& input) {
+    //while(input < 1 && input > 3) {
+        clear();
+        printw("slot(1-3)");
+        refresh();
+        input = getch();
+    //}
+    canvas->organismsTable().load(input,canvas);
+    input = NEXT_TURN;
 }
 World::~World() {
     delete canvas;

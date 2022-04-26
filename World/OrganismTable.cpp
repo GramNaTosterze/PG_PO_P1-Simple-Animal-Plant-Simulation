@@ -4,13 +4,14 @@
 #include "OrganismTable.h"
 #include "Organisms/Organism.h"
 #include "Organisms/Animal.h"
-
+#include "Organisms/Organisms.h"
+#include "Canvas.h"
 OrganismTable::OrganismTable(unsigned int x): table(new Organism*[x]) {
     for(int i = 0; i < x; i++)
         table[i] = nullptr;
 }
-Organism* OrganismTable::operator[](unsigned int i) {return table[i];}
-Human* OrganismTable::getHuman() {return human;}
+Organism* OrganismTable::operator[](unsigned int i) const{return table[i];}
+Human* OrganismTable::getHuman() const{return human;}
 void OrganismTable::remove(Organism* toRemove) {
     int i = 0;
     currentSize--;
@@ -32,6 +33,63 @@ void OrganismTable::add(Organism* a) {
     currentSize++;
     //sort(0,currentSize);
 }
+void OrganismTable::create(Organism* organism, char symbol,Canvas* world) {
+    switch(symbol){
+        case HUMAN:{
+            organism = new Human({0,0},world);
+            return;
+        }
+        case ANTELOPE:{
+            organism = new Antelope({0,0},world);
+            return;
+        }
+        /*case CYBER_SHEEP:{
+            organism = new CyberSheep({0,0},world);
+            return;
+        }*/
+        case FOX:{
+            organism = new Fox({0,0},world);
+            return;
+        }
+        case SHEEP:{
+            organism = new Sheep({0,0},world);
+            return;
+        }
+        case TURTLE:{
+            organism = new Turtle({0,0},world);
+            return;
+        }
+        case WOLF:{
+            organism = new Wolf({0,0},world);
+            return;
+        }
+        case ATROPA_BELLADONNA:{
+            organism = new AtropaBelladonna({0,0},world);
+            return;
+        }
+        case DANDELION:{
+            organism = new Dandelion({0,0},world);
+            return;
+        }
+        case GRASS:{
+            organism = new Grass({0,0},world);
+            return;
+        }
+        case GUARANA:{
+            organism = new Guarana({0,0},world);
+            return;
+        }
+        case HERACLEUM_SOSNOWSKYI:{
+            organism = new HeracleumSosnowskyi({0,0},world);
+            return;
+        }
+    }
+}
+void OrganismTable::clear() {
+    for(int i = 0; i < currentSize; i++)
+        table[i] = nullptr;
+    currentSize = 0;
+}
 void OrganismTable::sort(int l, int r) {
     if(r <= l)
         return;
@@ -51,14 +109,23 @@ void OrganismTable::sort(int l, int r) {
     if(i < r)
         sort(i,r);
 }
-unsigned int OrganismTable::size() {return currentSize;}
-void OrganismTable::save() {
+unsigned int OrganismTable::size() const{return currentSize;}
+void OrganismTable::save(int input) {
     ofstream save("save.txt");
     for(int i = 0; i < currentSize; i++) {
-        save<<table[i]->getName()<<" "<<table[i]->getPosition().x<<" "<<table[i]->getPosition().y<<" "<<table[i]->getStrength()<<" "<<table[i]->getInitiative()<<" "<<table[i]->getAge()<<'\n';
+        save<<table[i]<<'\n';
     }
     save.close();
 }
-void OrganismTable::load() {
-
+void OrganismTable::load(int input, Canvas* world) {
+    ifstream load("save.txt");
+    clear();
+    int i = 0;
+    char symbol;
+    while(!load.eof()) {
+        load>>symbol;
+        create(table[i],symbol,world);
+        load>>table[i];
+    }
+    currentSize = i;
 }

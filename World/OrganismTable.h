@@ -3,6 +3,7 @@
 class Organism;
 class Human;
 class Animal;
+class Canvas;
 
 class OrganismTable {
     private:
@@ -11,13 +12,15 @@ class OrganismTable {
     unsigned int currentSize;
     public:
     OrganismTable(unsigned int);
-    Organism* operator[](unsigned int);
-    Human* getHuman();
+    Organism* operator[](unsigned int) const;
+    Human* getHuman() const;
     void remove(Organism*);
     void add(Human*);
     void add(Organism*);
+    void create(Organism*,char,Canvas*);
+    void clear();
     void sort(int, int);
-    void save();
-    void load();
-    unsigned int size();
+    void save(int);
+    void load(int,Canvas*);
+    unsigned int size() const;
 };

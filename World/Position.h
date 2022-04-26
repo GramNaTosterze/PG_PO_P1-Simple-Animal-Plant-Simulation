@@ -16,4 +16,9 @@ struct Pos{
         out<<'{'<<pos.x<<','<<pos.y<<'}';
         return out;
     }
+    friend istream& operator>>(istream& in, Pos pos) {
+        char b;
+        in>>b>>pos.x>>b>>pos.y>>b;
+        return in;
+    }
 };
