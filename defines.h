@@ -6,18 +6,20 @@
 
 
 #define EXIT 120
-#define SAVE 115
-#define LOAD 108
-#define NEW 110
+
 
 #define ARROWS 27
 
-#define K_UP 'D'
-#define K_DOWN 'C'
-#define K_LEFT 'A'
-#define K_RIGHT 'B'
-#define ABILITY 112
-#define ABILITY2 80
+#define K_UP 'A'
+#define K_DOWN 'B'
+#define K_LEFT 'D'
+#define K_RIGHT 'C'
+#define K_ABILITY 5
+#define NEXT_TURN ' '
+#define SAVE 's'
+#define LOAD 'l'
+#define NEW 'n'
+#define ABILITY_TIMER 5
 
 enum {
     HUMAN = 'A',

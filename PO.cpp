@@ -25,16 +25,15 @@ int main () {
     World world(BOARDX,BOARDY,1);
 
     Canvas* canvas =  world.getCanvas();
-    Info* info = world.getInfo();
 //przykładowe zwierzęta można wywalić do klasy World dodatkowo
-    world.addOrganism(new Human({2,2},canvas,info));
-    world.addOrganism(new Wolf({10,10},canvas,info));
-    world.addOrganism(new Turtle({16,10},canvas,info));
-    world.addOrganism(new Fox({11,10},canvas,info));
-    world.addOrganism(new Sheep({15,12},canvas,info));
+    world.addOrganism(new Human({2,2},canvas));
+    world.addOrganism(new Wolf({10,10},canvas));
+    world.addOrganism(new Turtle({16,10},canvas));
+    world.addOrganism(new Fox({11,10},canvas));
+    world.addOrganism(new Sheep({15,12},canvas));
 //przykładowe rośliny można wywalić do klasy World dodatkowo
-    world.addOrganism(new Grass({0,0},canvas,info));
-    world.addOrganism(new Dandelion({4,4},canvas,info));
+    world.addOrganism(new Grass({0,0},canvas));
+    world.addOrganism(new Dandelion({4,4},canvas));
 
     initscr();
     while(true) {

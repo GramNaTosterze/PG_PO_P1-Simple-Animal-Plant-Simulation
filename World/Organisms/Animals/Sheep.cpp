@@ -1,5 +1,5 @@
 
 #include "Sheep.h"
 
-Sheep::Sheep(Pos position, Canvas *canvas, Info* info): Animal(4,4,position,canvas,SHEEP,info){}
+Sheep::Sheep(Pos position, Canvas *canvas): Animal(4,4,position,canvas,SHEEP){}
 string Sheep::getName() const{return "Owca";}

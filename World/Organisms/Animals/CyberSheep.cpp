@@ -1,7 +1,7 @@
 
 #include "CyberSheep.h"
 
-CyberSheep::CyberSheep(Pos position, Canvas *canvas, Info*): Sheep(position,canvas,info) {
+CyberSheep::CyberSheep(Pos position, Canvas *canvas): Sheep(position,canvas) {
     setStrength(11);
 }
 string CyberSheep::getName() const{return "Cyber owca";}

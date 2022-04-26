@@ -3,19 +3,17 @@
 #include "../Canvas.h"
 #include "../Position.h"
 #include "../../defines.h"
-#include "../Info.h"
 
 class Organism {
     protected:
     unsigned int strength;
     unsigned int initiative;
-    Info* info;
     Pos position;
     Canvas* world;
     char symbol;
     public:
     Organism();
-    Organism(unsigned int,unsigned int, Pos, Canvas*, char,Info*);
+    Organism(unsigned int,unsigned int, Pos, Canvas*, char);
     virtual unsigned int getStrength() const = 0;
     virtual unsigned int getInitiative() const = 0;
     virtual unsigned int getAge() const = 0;
@@ -27,5 +25,6 @@ class Organism {
     virtual void colision(Plant*) = 0;
     virtual char draw() = 0;
     virtual void replace(Organism*,Organism*) = 0;
+    friend ostream& operator<<(ostream&, Organism*);
     ~Organism();
 };

@@ -1,10 +1,12 @@
 
-#include "Animal.h"
-#include "../../defines.h"
 #include <cstdlib>
 #include <time.h>
+#include <iostream>
+#include "Animal.h"
+#include "../../defines.h"
+using namespace std;
 
-Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol,Info* info) : Organism(strength,initiative,position,canvas,symbol,info), age(0) {
+Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol) : Organism(strength,initiative,position,canvas,symbol), age(0) {
     world->set(position,this);
 }
 unsigned int Animal::getStrength() const {return strength;}
@@ -70,8 +72,7 @@ void Animal::replace(Organism* one,Organism* two) {
     world->set(position,one);
     one->setPosition(position);
     string s = one->getName()+" zabija "+two->getName()+"\n";
-    info->addInfo(s);
+    world->addInfoDown(s);
     world->organismsTable().remove(two);
 }
-
 Animal::~Animal() {}

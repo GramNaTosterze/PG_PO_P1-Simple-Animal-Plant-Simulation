@@ -6,7 +6,7 @@ class Animal : public Organism {
     protected:
     unsigned int age;
     public:
-    Animal(unsigned int, int, Pos, Canvas*, char,Info*);
+    Animal(unsigned int, int, Pos, Canvas*, char);
     unsigned int getStrength() const override;
     unsigned int getInitiative() const override;
     unsigned int getAge() const;
@@ -20,7 +20,6 @@ class Animal : public Organism {
     void colision(Plant*) override;
     char draw() override;
     void replace(Organism*,Organism*) override;
-
 
     ~Animal();
 };

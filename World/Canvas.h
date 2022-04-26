@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "Position.h"
 #include "OrganismTable.h"
 
@@ -10,11 +11,16 @@ class Plant;
 
 class Canvas {
     private:
+    string infoUp;
+    string infoDown;
     Organism*** board;
     OrganismTable organisms;
     unsigned int X,Y;
     public:
     Canvas(unsigned int X, unsigned int Y);
+    void addInfoUp(string);
+    void addInfoDown(string);
+    void cleanInfo();
     OrganismTable& organismsTable();
     Organism* operator[] (unsigned int i);
     Organism* operator[] (Pos pos);

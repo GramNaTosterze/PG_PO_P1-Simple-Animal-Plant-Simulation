@@ -43,19 +43,23 @@ Pos Canvas::nextPos(Pos pos) {
     }
     return EMPTY_POS;
 }
-OrganismTable& Canvas::organismsTable() {
-    return organisms;
-}
-unsigned int Canvas::getX() {
-    return X;
-}
-unsigned int Canvas::getY() {
-    return Y;
-}
-void Canvas::set(Pos pos, Organism* organism) {
-    board[pos.y][pos.x] = organism;
+void Canvas::addInfoUp(string info) {infoUp = infoUp + info;}
+void Canvas::addInfoDown(string info) {infoDown = infoDown + info;}
+OrganismTable& Canvas::organismsTable() {return organisms;}
+unsigned int Canvas::getX() {return X;}
+unsigned int Canvas::getY() {return Y;}
+void Canvas::set(Pos pos, Organism* organism) {board[pos.y][pos.x] = organism;}
+void Canvas::cleanInfo() {
+    infoUp.clear();
+    infoDown.clear();
 }
 void Canvas::draw() {
+    clear();
+    //refresh();
+    printw("Krzysztof Napiórkowski 191689\n");
+    printw("Liczba Organizmów: %u\n",organismsTable().size());
+    char* up = &infoUp[0];
+    printw("%s",up);
     unsigned int x = getX(), y = getY();
     for(int i = 0; i <= y+1; i++) {
         for( int j = 0; j <= x+1; j++) {
@@ -72,5 +76,8 @@ void Canvas::draw() {
         }
         printw("\n");
     }
+    char* down = &infoDown[0];
+    printw("%s",down);
+    cleanInfo();
     refresh();
 }
