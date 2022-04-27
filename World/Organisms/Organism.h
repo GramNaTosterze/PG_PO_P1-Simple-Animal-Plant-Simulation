@@ -8,7 +8,7 @@ class Organism {
     protected:
     unsigned int strength;
     unsigned int initiative;
-    unsigned age;
+    unsigned int age;
     Pos position;
     Canvas* world;
     char symbol;
@@ -26,6 +26,6 @@ class Organism {
     virtual char draw() = 0;
     virtual void replace(Organism*,Organism*) = 0;
     friend ostream& operator<<(ostream&, Organism*);
-    friend istream& operator>>(istream&, Organism*);
+    friend istream& operator>>(istream&, Organism*&);
     ~Organism();
 };

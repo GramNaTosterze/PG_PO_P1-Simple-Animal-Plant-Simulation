@@ -11,8 +11,6 @@ class Human : public Animal {
     string getName() const override;
     void control(int&);
     void action() override;
-    void colision(Animal*) override;
-    void colision(Plant*) override;
     void calopalenie();
 
     ~Human();

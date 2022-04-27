@@ -17,10 +17,8 @@ class OrganismTable {
     void remove(Organism*);
     void add(Human*);
     void add(Organism*);
-    void create(Organism*,char,Canvas*);
     void clear();
     void sort(int, int);
-    void save(int);
-    void load(int,Canvas*);
+    void save(int,int,int);
     unsigned int size() const;
 };

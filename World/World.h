@@ -5,17 +5,21 @@
 #include "Organisms/Plant.h"
 #include "Canvas.h"
 using namespace std;
+
 class World {
     private:
     Canvas* canvas;
     public:
-    World(unsigned int, unsigned int, unsigned int);
-    void addOrganism(Organism*);
+    World(unsigned int, unsigned int);
+    char randOrganism();
+    void create(char,Pos);
+    void generate();
+    template <class Organisms>
+    void addOrganism(Pos);
     void makeATurn();
     void drawWorld();
     Canvas* getCanvas();
     void save(int&);
-    void load(int&);
     void sort(int,int);
     ~World();
 };

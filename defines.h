@@ -1,20 +1,12 @@
 #pragma once
 
-#define BOARDX 20
-#define BOARDY 20
 #define EMPTY_POS {-1,-1}
-
-
-#define EXIT 120
-
-
 #define ARROWS 27
-
 #define K_UP 'A'
 #define K_DOWN 'B'
 #define K_LEFT 'D'
 #define K_RIGHT 'C'
-#define K_ABILITY 5
+#define K_ABILITY '5'
 #define NEXT_TURN ' '
 #define SAVE 's'
 #define LOAD 'l'

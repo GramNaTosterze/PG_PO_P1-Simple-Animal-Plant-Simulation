@@ -64,15 +64,9 @@ void Human::action() {
         }
     }
 }
-void Human::colision(Animal* other) {
-    Animal::colision(other);
-}
-void Human::colision(Plant* other) {
-    Animal::colision(other);
-}
 void Human::calopalenie() {
-    for(int i = (position.x-1 == -1 ? 0 : position.x-1); i < position.x+2; i++)
-        for(int j = (position.y-1 == -1 ? 0 : position.y-1); j < position.y+2; j++)
+    for(int i = (position.x-1 == -1 ? 0 : position.x-1); i < (position.x+2 == world->getX()? world->getX() : position.x+2); i++)
+        for(int j = (position.y-1 == -1 ? 0 : position.y-1); j < (position.y+2 == world->getY()? world->getY() : position.y+2); j++)
             if(position != Pos{i,j} && (*world)[{i,j}] != nullptr) {
                 world->organismsTable().remove((*world)[{i,j}]);
                 world->set({i,j},nullptr);

@@ -8,8 +8,10 @@ void Turtle::action() {
         Animal::action();
 }
 void Turtle::colision(Animal* other) {
-    if(other->getStrength() < 5)
+    if(other->getStrength() < 5) {
         world->set(other->getPosition(),other);
+        world->addInfoDown(getName()+" obronil sie przed atakiem stworzenia "+other->getName());
+    }
     else
         Animal::colision(other);
 }

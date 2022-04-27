@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 struct Pos{
+    public:
     int x;
     int y;
     bool operator!=(Pos pos) {
@@ -12,13 +13,12 @@ struct Pos{
         else
             return false;
     }
-    friend ostream& operator<<(ostream& out, Pos pos) {
-        out<<'{'<<pos.x<<','<<pos.y<<'}';
+    friend ostream& operator<<(ostream& out, const Pos pos) {
+        out<<pos.x<<' '<<pos.y;
         return out;
     }
-    friend istream& operator>>(istream& in, Pos pos) {
-        char b;
-        in>>b>>pos.x>>b>>pos.y>>b;
+    friend istream& operator>>(istream& in, Pos& pos) {
+        in>>pos.x>>pos.y;
         return in;
     }
 };

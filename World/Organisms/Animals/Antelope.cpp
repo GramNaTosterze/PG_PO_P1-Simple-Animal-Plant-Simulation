@@ -28,6 +28,7 @@ void Antelope::action() {
 void Antelope::colision(Animal* other) {
     if(rand()%2) {
         world->set(world->nextPos(position),this);
+        world->addInfoDown(getName()+" uciekla na inne pole");
     }
     else
         Animal::colision(other);

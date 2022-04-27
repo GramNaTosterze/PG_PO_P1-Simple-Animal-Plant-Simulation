@@ -6,7 +6,7 @@
 #include "../../defines.h"
 using namespace std;
 
-Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol) : Organism(strength,initiative,position,canvas,symbol), age(0) {
+Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol) : Organism(strength,initiative,position,canvas,symbol) {
     world->set(position,this);
 }
 unsigned int Animal::getStrength() const {return strength;}
@@ -44,9 +44,9 @@ void Animal::action() {
 void Animal::move(int x, int y) {
     world->set(position,(Animal*)nullptr);
     Pos newPos = position;
-    if(position.x+x >= 0 && position.x+x < BOARDX)
+    if(position.x+x >= 0 && position.x+x < world->getX())
         newPos.x = position.x + x;
-    if(position.y+y >= 0 && position.y+y < BOARDY)
+    if(position.y+y >= 0 && position.y+y < world->getY())
         newPos.y = position.y + y;
 
     if((*world)[newPos] == nullptr) {
@@ -71,8 +71,7 @@ char Animal::draw() {
 void Animal::replace(Organism* one,Organism* two) {
     world->set(position,one);
     one->setPosition(position);
-    string s = one->getName()+" zabija "+two->getName()+"\n";
-    world->addInfoDown(s);
+    world->addInfoDown(one->getName()+" zabija stworzenie "+two->getName());
     world->organismsTable().remove(two);
 }
 Animal::~Animal() {}

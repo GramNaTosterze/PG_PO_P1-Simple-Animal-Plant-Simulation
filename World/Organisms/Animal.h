@@ -3,13 +3,11 @@
 #include "Organism.h"
 
 class Animal : public Organism {
-    protected:
-    unsigned int age;
     public:
     Animal(unsigned int, int, Pos, Canvas*, char);
     unsigned int getStrength() const override;
     unsigned int getInitiative() const override;
-    unsigned int getAge() const;
+    unsigned int getAge() const override;
     string getName() const override;
     Pos getPosition() const override;
     void setPosition(Pos) override;

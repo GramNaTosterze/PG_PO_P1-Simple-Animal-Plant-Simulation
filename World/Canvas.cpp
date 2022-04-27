@@ -25,7 +25,7 @@ Pos Canvas::nextPos(Pos pos) {
     DIRECTIONS direction = DIRECTIONS(rand()%4);
     switch(direction) {
         case UP: {
-            if(pos.y+1 != BOARDY && board[pos.y+1][pos.x] == nullptr)
+            if(pos.y+1 != Y && board[pos.y+1][pos.x] == nullptr)
                 return {pos.x,pos.y+1};
         }
         case DOWN: {
@@ -33,7 +33,7 @@ Pos Canvas::nextPos(Pos pos) {
                 return {pos.x,pos.y-1};
         }
         case LEFT: {
-            if(pos.x+1 != BOARDX && board[pos.y][pos.x+1] == nullptr)
+            if(pos.x+1 != X && board[pos.y][pos.x+1] == nullptr)
                 return {pos.x+1,pos.y};
         }
         case RIGHT: {
@@ -43,8 +43,8 @@ Pos Canvas::nextPos(Pos pos) {
     }
     return EMPTY_POS;
 }
-void Canvas::addInfoUp(string info) {infoUp = infoUp + info;}
-void Canvas::addInfoDown(string info) {infoDown = infoDown + info;}
+void Canvas::addInfoUp(string info) {infoUp = infoUp + info+"\n";}
+void Canvas::addInfoDown(string info) {infoDown = infoDown + info+"\n";}
 OrganismTable& Canvas::organismsTable() {return organisms;}
 unsigned int Canvas::getX() {return X;}
 unsigned int Canvas::getY() {return Y;}

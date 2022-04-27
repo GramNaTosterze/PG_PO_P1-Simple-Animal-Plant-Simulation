@@ -1,7 +1,7 @@
 
 #include "Plant.h"
 
-Plant::Plant(unsigned int strength, Pos position, Canvas* canvas, char symbol): Organism(strength,0,position,canvas,symbol), age(0){
+Plant::Plant(unsigned int strength, Pos position, Canvas* canvas, char symbol): Organism(strength,0,position,canvas,symbol){
     world->set(position,this);
 }
 unsigned int Plant::getStrength() const {return strength;}
@@ -9,14 +9,14 @@ unsigned int Plant::getInitiative() const {return initiative;}
 unsigned int Plant::getAge() const {return age;}
 Pos Plant::getPosition() const {return position;}
 void Plant::setPosition(Pos pos) {this->position = pos;}
-string Plant::getName() const{return "Roślina";}
+string Plant::getName() const{return "Roslina";}
 void Plant::action() {
     spread();
     age++;
 }
 
 void Plant::spread() {
-    if(age != 0 &&  rand()%5 == 1) {
+    if(age != 0 &&  rand()%30 == 1) {
         Pos pos = world->nextPos(this->position);
         if(pos.x != -1 && pos.y != -1) {
             if((*world)[pos] == nullptr )
@@ -27,6 +27,7 @@ void Plant::spread() {
 void Plant::colision(Animal* other) {
     world->set(position,other);
     other->setPosition(position);
+    world->addInfoDown(other->getName()+" zjdl rosline "+this->getName());
     world->organismsTable().remove(this);
 }
 //tmp
