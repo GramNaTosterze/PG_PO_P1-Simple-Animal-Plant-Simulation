@@ -43,6 +43,15 @@ Pos Canvas::nextPos(Pos pos) {
     }
     return EMPTY_POS;
 }
+Pos Canvas::freeSpace() const {
+    Pos pos;
+    pos.x = rand()%(X-1);
+    pos.y = rand()%(Y-1);
+    if(board[pos.y][pos.x] == nullptr)
+        return pos;
+    else
+        return freeSpace();
+}
 void Canvas::addInfoUp(string info) {infoUp = infoUp + info+"\n";}
 void Canvas::addInfoDown(string info) {infoDown = infoDown + info+"\n";}
 OrganismTable& Canvas::organismsTable() {return organisms;}

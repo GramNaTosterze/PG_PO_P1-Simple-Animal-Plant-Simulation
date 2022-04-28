@@ -34,6 +34,13 @@ void OrganismTable::remove(Organism* toRemove) {
     table[currentSize+1] = nullptr;
     delete toRemove;
 }
+Organism* OrganismTable::find(char symbol) {
+    for(int i = 0; i < currentSize; i++)
+        if(table[i]->draw() == symbol)
+            return table[i];
+
+    return nullptr;
+}
 void OrganismTable::clear() {
     for(int i = 0; i < currentSize; i++)
         table[i] = nullptr;

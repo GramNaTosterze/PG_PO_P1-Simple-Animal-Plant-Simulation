@@ -6,7 +6,7 @@
 #include "../../defines.h"
 using namespace std;
 
-Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol, string name) : Organism(strength,initiative,position,canvas,symbol,name,ANIMAL) {
+Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol, string name, unsigned int speed) : Organism(strength,initiative,position,canvas,symbol,name,ANIMAL), speed(speed) {
     world->set(position,this);
 }
 void Animal::setPosition(Pos pos) {
@@ -16,6 +16,7 @@ void Animal::setStrength(unsigned int strength) {
     this->strength = strength;
 }
 void Animal::action() {
+    age++;
     DIRECTIONS direction = DIRECTIONS(rand()%4);
     switch(direction){
         case UP: {
@@ -39,6 +40,8 @@ void Animal::action() {
 void Animal::move(int x, int y) {
     world->set(position,(Animal*)nullptr);
     Pos newPos = position;
+    x = x*speed;
+    y = y*speed;
     if(position.x+x >= 0 && position.x+x < world->getX())
         newPos.x = position.x + x;
     if(position.y+y >= 0 && position.y+y < world->getY())

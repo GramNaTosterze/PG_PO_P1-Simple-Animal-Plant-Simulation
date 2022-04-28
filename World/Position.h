@@ -5,6 +5,7 @@ struct Pos{
     public:
     int x;
     int y;
+    bool operator==(Pos pos);
     bool operator!=(Pos pos);
     friend ostream& operator<<(ostream& out, const Pos pos);
     friend istream& operator>>(istream& in, Pos& pos);

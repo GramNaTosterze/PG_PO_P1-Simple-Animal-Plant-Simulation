@@ -11,7 +11,8 @@ class World {
     Canvas* canvas;
     public:
     World(unsigned int, unsigned int);
-    char randOrganism();
+    char randAnimal();
+    char randPlant();
     void create(char,Pos);
     void generate();
     template <class Organisms>

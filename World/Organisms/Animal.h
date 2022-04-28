@@ -3,8 +3,10 @@
 #include "Organism.h"
 
 class Animal : public Organism {
+    protected:
+    unsigned int speed;
     public:
-    Animal(unsigned int, int, Pos, Canvas*, char, string);
+    Animal(unsigned int, int, Pos, Canvas*, char, string, unsigned int);
     void setPosition(Pos) override;
     void setStrength(unsigned int);
     void action() override;

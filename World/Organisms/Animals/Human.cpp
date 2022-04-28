@@ -3,7 +3,7 @@
 #include "Human.h"
 
 using namespace std;
-Human::Human(Pos position, Canvas *canvas) : Animal(5,4,position,canvas,HUMAN,"Czlowiek"), abilityTimer(0) {
+Human::Human(Pos position, Canvas *canvas) : Animal(5,4,position,canvas,HUMAN,"Czlowiek",1), abilityTimer(0) {
     world->addInfoUp("Kontrola: strzalki\n");
 }
 void Human::control(int& input) {
@@ -35,6 +35,7 @@ void Human::control(int& input) {
     }
 }
 void Human::action() {
+    age++;
     printw("%i",direction);
     if(abilityTimer != 0)
         abilityTimer--;

@@ -1,7 +1,7 @@
 
 #include "Fox.h"
 
-Fox::Fox(Pos position, Canvas *canvas): Animal(3,7,position,canvas,FOX,"Lisek") {}
+Fox::Fox(Pos position, Canvas *canvas): Animal(3,7,position,canvas,FOX,"Lisek",1) {}
 void Fox::move(int x, int y) {
     world->set(position,(Animal*)nullptr);
     Pos newPos = position;
@@ -14,7 +14,7 @@ void Fox::move(int x, int y) {
         setPosition(newPos);  
         world->set(newPos,this);
     }
-    else if((*world)[newPos]->getStrength() > strength) {
+    else if((*world)[newPos]->getStrength() > strength && (*world)[newPos]->getType() == ANIMAL) {
         world->set(position,this);
         world->addInfoDown(getName()+" postanowil trzymac sie z daleko od pola z drapieznikiem");
     }

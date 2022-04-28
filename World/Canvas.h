@@ -24,6 +24,7 @@ class Canvas {
     OrganismTable& organismsTable();
     Organism* operator[] (unsigned int i);
     Organism* operator[] (Pos pos);
+    Pos freeSpace() const;
     Pos nextPos(Pos pos);
     unsigned int getX();
     unsigned int getY();

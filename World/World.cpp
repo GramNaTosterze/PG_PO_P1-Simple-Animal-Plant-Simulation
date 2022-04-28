@@ -14,10 +14,10 @@ void World::create(char symbol, Pos pos) {
             addOrganism<Antelope>(pos);
             return;
         }
-        //case CYBER_SHEEP:{
-        //    addOrganism<CyberSheep>(pos);
-        //    return;
-        //}
+        case CYBER_SHEEP:{
+            addOrganism<CyberSheep>(pos);
+            return;
+        }
         case FOX:{
             addOrganism<Fox>(pos);                
             return;
@@ -57,27 +57,24 @@ void World::create(char symbol, Pos pos) {
     }
     return;
 }
-char World::randOrganism() {
-    return 'a';
+char World::randAnimal() {
+    char animals[6] = {WOLF,SHEEP,FOX,TURTLE,ANTELOPE,CYBER_SHEEP};
+    int r = rand()%6;
+    return animals[r];
+}
+char World::randPlant() {
+    char plants[5] = {GRASS,DANDELION,GUARANA,ATROPA_BELLADONNA,HERACLEUM_SOSNOWSKYI};
+    int r = rand()%5;
+    return plants[r];
 }
 void World::generate() {
-    int number = canvas->getX()/2;
-    int x = canvas->getX()-1, y = canvas->getY()-1;
-    create(HUMAN,{x/2,y/2});
-    create(WOLF,{x/4,y/3});
-    create(SHEEP,{x/3,y/4});
-    create(ANTELOPE,{x/5,y/2});
-    create(TURTLE,{2,2});
-    create(FOX,{10,10});
-
-    create(GRASS,{0,0});
-    create(DANDELION,{3,3});
-    create(ATROPA_BELLADONNA,{x,0});
-    create(GUARANA,{6,6});
-    create(HERACLEUM_SOSNOWSKYI,{0,y});
-    //create(HUMAN,canvas->freeSpace());
-    //for(int i = 0; i < number; i++)
-    //    create(randOrganism(),canvas->freeSpace());
+    int animals = canvas->getX()/3;
+    int plants = canvas->getY()/3;
+    create(HUMAN,canvas->freeSpace());
+    for(int i = 0; i < animals; i++)
+        create(randAnimal(),canvas->freeSpace());
+    for(int i = 0; i < plants; i++)
+        create(randPlant(),canvas->freeSpace());
 }
 template <class Organisms>
 void World::addOrganism(Pos pos) {

@@ -18,6 +18,7 @@ class OrganismTable {
     void remove(Human*);
     void add(Organism*);
     void remove(Organism*);
+    Organism* find(char);
     void clear();
     void qsort(int, int);
     void sort();

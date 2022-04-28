@@ -1,8 +1,11 @@
 
 #include "Position.h"
 
+bool Pos::operator==(Pos pos) {
+    return (x == pos.x && y == pos.y);
+}
 bool Pos::operator!=(Pos pos) {
-    return (x != pos.x || y != pos.y);
+    return !operator==(pos);
 }
 ostream& operator<<(ostream& out, const Pos pos) {
     out<<pos.x<<' '<<pos.y;

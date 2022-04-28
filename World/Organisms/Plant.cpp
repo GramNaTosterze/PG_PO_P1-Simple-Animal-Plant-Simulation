@@ -24,11 +24,9 @@ void Plant::colision(Animal* other) {
     world->addInfoDown(other->getName()+" zjdl rosline "+this->getName());
     world->organismsTable().remove(this);
 }
-//tmp
 void Plant::colision(Plant* other) {
-    world->set(position,other);
-    //other->setPosition(position);
-    world->organismsTable().remove(this);
+    world->set(position,this);
+    world->organismsTable().remove(other);
 }
 char Plant::draw() {
     return symbol;

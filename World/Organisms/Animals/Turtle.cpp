@@ -1,10 +1,13 @@
 
 #include <cstdlib>
 #include "Turtle.h"
-Turtle::Turtle(Pos position, Canvas *canvas): Animal(2,1,position,canvas,TURTLE,"Zolw") {}
+Turtle::Turtle(Pos position, Canvas *canvas): Animal(2,1,position,canvas,TURTLE,"Zolw",1) {}
 void Turtle::action() {
-    if(rand()%4 == 3)
+    age++;
+    if(rand()%4 == 3) {
+        age--;
         Animal::action();
+    }
 }
 void Turtle::colision(Animal* other) {
     if(other->getStrength() < 5) {
