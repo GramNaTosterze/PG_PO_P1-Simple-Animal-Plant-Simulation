@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <ncurses.h>
 #include "World/Session.h"
 #include "World/World.h"

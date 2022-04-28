@@ -55,7 +55,6 @@ void Canvas::cleanInfo() {
 }
 void Canvas::draw() {
     clear();
-    //refresh();
     printw("Krzysztof Napiórkowski 191689\n");
     printw("Liczba Organizmów: %u\n",organismsTable().size());
     char* up = &infoUp[0];
@@ -66,10 +65,8 @@ void Canvas::draw() {
             if(i == 0 || i == y+1 || j == 0 || j == x+1)
                 printw("#");
             else {
-                if(board[i-1][j-1] != nullptr) {
-                    const char c[1] = {board[i-1][j-1]->draw()};
-                    printw(c);
-                }
+                if(board[i-1][j-1] != nullptr)
+                    printw("%c",board[i-1][j-1]->draw());
                 else
                     printw(" ");
             }
