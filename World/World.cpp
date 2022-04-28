@@ -83,12 +83,15 @@ template <class Organisms>
 void World::addOrganism(Pos pos) {
     canvas->organismsTable().add(new Organisms(pos,canvas));
 }
-void World::makeATurn() {
+void World::turn() {
+    canvas->draw();
+    canvas->organismsTable().sort();
     int input = -1;
     while(input != NEXT_TURN) {
         input = getch();
-        if(input == ARROWS)
-            ((Human*)((*canvas)[0]))->control(input);
+        Human* human = canvas->organismsTable().getHuman();
+        if(input == ARROWS && human != nullptr)
+            human->control(input);
         else if (input == NEXT_TURN)
             for(int i = 0; i < canvas->organismsTable().size(); i++)
                 (*canvas)[i]->action();
@@ -96,20 +99,18 @@ void World::makeATurn() {
             save(input);
     }
 }
-void World::drawWorld() {
-    canvas->draw();
-}
-Canvas* World::getCanvas() {
-    return canvas;
-}
+Canvas* World::getCanvas() {return canvas;}
 void World::save(int& input) {
-    //while(input < 1 && input > 3) {
+    int save = -1;
+    while(save < 1 || save > 3) {
         clear();
         printw("slot(1-3)");
         refresh();
-        input = getch();
-    //}
-    canvas->organismsTable().save(input,canvas->getX(),canvas->getY());
+        save = getch() - '0';
+        printw("\n%i\n",save);
+        printw("\n");
+    }
+    canvas->organismsTable().save(save,canvas->getX(),canvas->getY());
     input = NEXT_TURN;
 }
 World::~World() {

@@ -14,11 +14,13 @@ class OrganismTable {
     OrganismTable(unsigned int);
     Organism* operator[](unsigned int) const;
     Human* getHuman() const;
-    void remove(Organism*);
     void add(Human*);
+    void remove(Human*);
     void add(Organism*);
+    void remove(Organism*);
     void clear();
-    void sort(int, int);
+    void qsort(int, int);
+    void sort();
     void save(int,int,int);
     unsigned int size() const;
 };

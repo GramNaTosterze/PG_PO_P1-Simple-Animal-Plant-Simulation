@@ -8,7 +8,6 @@ class Human : public Animal {
     int abilityTimer;
     public:
     Human(Pos, Canvas*);
-    string getName() const override;
     void control(int&);
     void action() override;
     void calopalenie();

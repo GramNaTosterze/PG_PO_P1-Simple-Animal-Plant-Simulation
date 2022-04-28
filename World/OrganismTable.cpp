@@ -11,6 +11,18 @@ OrganismTable::OrganismTable(unsigned int x): table(new Organism*[x]) {
 }
 Organism* OrganismTable::operator[](unsigned int i) const{return table[i];}
 Human* OrganismTable::getHuman() const{return human;}
+void OrganismTable::add(Human* h) {
+    human = h;
+    add((Organism*)human);
+}
+void OrganismTable::remove(Human* h) {
+    human = nullptr;
+    remove((Organism*)human);
+}
+void OrganismTable::add(Organism* a) {
+    table[currentSize] = a;
+    currentSize++;
+}
 void OrganismTable::remove(Organism* toRemove) {
     int i = 0;
     currentSize--;
@@ -21,54 +33,40 @@ void OrganismTable::remove(Organism* toRemove) {
 
     table[currentSize+1] = nullptr;
     delete toRemove;
-    sort(0,currentSize);
-}
-void OrganismTable::add(Human* h) {
-    human = h;
-    add((Organism*)h);
-    sort(0,currentSize);
-
-}
-void OrganismTable::add(Organism* a) {
-    table[currentSize] = a;
-    currentSize++;
-    sort(0,currentSize);
 }
 void OrganismTable::clear() {
     for(int i = 0; i < currentSize; i++)
         table[i] = nullptr;
     currentSize = 0;
 }
-void OrganismTable::sort(int l, int r) {
-    for(int i = 0; i < r; i++)
-        for(int j = i; j < r; j++) {
-            if(table[i]->getInitiative() < table[j]->getInitiative())
-                swap(table[i],table[j]);
-            else if(table[i]->getInitiative() == table[j]->getInitiative())
-                if(table[i]->getAge() < table[j]->getAge())
-                    swap(table[i],table[j]);
-        }
-    /*if(r <= l)
+void OrganismTable::sort() {
+    qsort(0,currentSize-1);
+}
+void OrganismTable::qsort(int l, int r) {
+    if(r <= l)
         return;
     int i = l-1, j = r+1;
     Organism* pivot = table[(l+r)/2];
     while(true) {
-        while((pivot->getInitiative() > table[++i]->getInitiative()) );//|| (pivot->getInitiative() == table[i]->getInitiative() && pivot->getAge() > table[i]->getAge()));
-        while((pivot->getInitiative() < table[--j]->getInitiative()) );//|| (pivot->getInitiative() == table[j]->getInitiative() && pivot->getAge() < table[j]->getAge()));
-        if( i < j)
-            swap(table[i],table[j]);
+        while((++i)<r && (*(pivot) < *(table[i])));
+        while((--j)>l && (*(table[j]) < *(pivot)));
+        if( i <= j) {
+            Organism* tmp = table[i];
+            table[i] = table[j];
+            table[j] = tmp;
+        }
         else
             break;
 
     }
     if(j > l)
-        sort(l,j);
+        qsort(l,j);
     if(i < r)
-        sort(i,r);*/
+        qsort(i,r);
 }
 unsigned int OrganismTable::size() const{return currentSize;}
 void OrganismTable::save(int input,int x, int y) {
-    ofstream save("save.txt");
+    ofstream save("save"+to_string(input)+".txt");
     save<<x<<" "<<y<<'\n';
     for(int i = 0; i < currentSize; i++) {
         save<<table[i]<<'\n';

@@ -5,13 +5,8 @@
 
 class Plant : public Organism {
     public:
-    Plant(unsigned int, Pos, Canvas*, char);
-    unsigned int getStrength() const override;
-    unsigned int getInitiative() const override;
-    unsigned int getAge() const override;
-    Pos getPosition() const override;
+    Plant(unsigned int, Pos, Canvas*, char, string);
     void setPosition(Pos) override;
-    string getName() const override;
     void action() override;
     virtual void spread();
     virtual void addInstanceOf(Pos) = 0;

@@ -1,7 +1,7 @@
 
 #include "Guarana.h"
 
-Guarana::Guarana(Pos position, Canvas* canvas): Plant(0,position,canvas,GUARANA) {}
+Guarana::Guarana(Pos position, Canvas* canvas): Plant(0,position,canvas,GUARANA,"Guarana") {}
 void Guarana::addInstanceOf(Pos pos) {
     world->organismsTable().add(new Guarana(pos,world));
 }

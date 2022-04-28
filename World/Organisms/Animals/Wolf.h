@@ -4,5 +4,4 @@
 class Wolf : public Animal {
     public:
     Wolf(Pos, Canvas*);
-    string getName() const override;
 };

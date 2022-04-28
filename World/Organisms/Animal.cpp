@@ -6,14 +6,9 @@
 #include "../../defines.h"
 using namespace std;
 
-Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol) : Organism(strength,initiative,position,canvas,symbol) {
+Animal::Animal(unsigned int strength, int initiative, Pos position, Canvas *canvas, char symbol, string name) : Organism(strength,initiative,position,canvas,symbol,name,ANIMAL) {
     world->set(position,this);
 }
-unsigned int Animal::getStrength() const {return strength;}
-unsigned int Animal::getInitiative() const {return initiative;}
-unsigned int Animal::getAge() const {return age;}
-Pos Animal::getPosition() const{return position;}
-string Animal::getName() const{return "Zwierze";}
 void Animal::setPosition(Pos pos) {
     this->position = pos;
 }
@@ -57,7 +52,7 @@ void Animal::move(int x, int y) {
         (*world)[newPos]->colision(this);
 }
 void Animal::colision(Animal* other) {
-    if(this->strength > other->getStrength())
+    if(this->strength >= other->getStrength())
         replace(this,other);
     else
         replace(other,this);

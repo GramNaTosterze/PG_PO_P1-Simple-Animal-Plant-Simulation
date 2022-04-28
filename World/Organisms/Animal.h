@@ -4,12 +4,7 @@
 
 class Animal : public Organism {
     public:
-    Animal(unsigned int, int, Pos, Canvas*, char);
-    unsigned int getStrength() const override;
-    unsigned int getInitiative() const override;
-    unsigned int getAge() const override;
-    string getName() const override;
-    Pos getPosition() const override;
+    Animal(unsigned int, int, Pos, Canvas*, char, string);
     void setPosition(Pos) override;
     void setStrength(unsigned int);
     void action() override;

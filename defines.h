@@ -2,6 +2,7 @@
 
 #define EMPTY_POS {-1,-1}
 #define ARROWS 27
+#define ESC 27
 #define K_UP 'A'
 #define K_DOWN 'B'
 #define K_LEFT 'D'
@@ -14,13 +15,13 @@
 #define ABILITY_TIMER 5
 
 enum {
-    HUMAN = 'A',
-    WOLF = 'H',
-    SHEEP = 'O',
-    FOX = 'W',
-    TURTLE = 'U',
-    ANTELOPE = 'M',
-    CYBER_SHEEP = 'Q',
+    HUMAN = 'H',
+    WOLF = 'W',
+    SHEEP = 'S',
+    FOX = 'F',
+    TURTLE = 'T',
+    ANTELOPE = 'A',
+    CYBER_SHEEP = '$',
 
     GRASS = '.',
     DANDELION = '*',
@@ -34,4 +35,8 @@ enum DIRECTIONS {
     LEFT,
     RIGHT,
     STAY,
+};
+enum TYPE {
+    ANIMAL,
+    PLANT,
 };

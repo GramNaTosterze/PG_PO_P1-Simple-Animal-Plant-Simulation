@@ -3,10 +3,9 @@
 #include "Human.h"
 
 using namespace std;
-Human::Human(Pos position, Canvas *canvas) : Animal(5,4,position,canvas,HUMAN), abilityTimer(0) {
+Human::Human(Pos position, Canvas *canvas) : Animal(5,4,position,canvas,HUMAN,"Czlowiek"), abilityTimer(0) {
     world->addInfoUp("Kontrola: strzalki\n");
 }
-string Human::getName() const{return "Czlowiek";}
 void Human::control(int& input) {
     input = NEXT_TURN;
     getch();

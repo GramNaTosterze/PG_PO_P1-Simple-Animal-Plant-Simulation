@@ -2,8 +2,7 @@
 #include <cstdlib>
 #include "Antelope.h"
 
-Antelope::Antelope(Pos position, Canvas* canvas): Animal(4,4,position,canvas,ANTELOPE) {}
-string Antelope::getName() const{return "Antylopa";}
+Antelope::Antelope(Pos position, Canvas* canvas): Animal(4,4,position,canvas,ANTELOPE,"Antylopa") {}
 void Antelope::action() {
     DIRECTIONS direction = DIRECTIONS(rand()%4);
     switch(direction){

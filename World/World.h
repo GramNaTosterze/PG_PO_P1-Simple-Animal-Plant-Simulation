@@ -16,8 +16,7 @@ class World {
     void generate();
     template <class Organisms>
     void addOrganism(Pos);
-    void makeATurn();
-    void drawWorld();
+    void turn();
     Canvas* getCanvas();
     void save(int&);
     void sort(int,int);
