@@ -7,10 +7,13 @@ CyberSheep::CyberSheep(Pos position, Canvas *canvas): Sheep(position,canvas), de
     name = "Cyber Owca";
 }
 void CyberSheep::action() {
-    //if(destination == Pos(EMPTY_POS)) {
-        //Organism* sos = world->organismsTable().find(HERACLEUM_SOSNOWSKYI);
-        //destination = sos->getPosition();
-    //}
+    if(destination == Pos(EMPTY_POS)) {
+        Organism* sos = world->organismsTable().find(HERACLEUM_SOSNOWSKYI);
+        if(sos != nullptr) {
+            world->addInfoDown(name+" wyweszyla "+sos->getName()+"\n");
+            destination = sos->getPosition();
+        }
+    }
     
     if(destination == Pos(EMPTY_POS))
         Sheep::action();

@@ -2,8 +2,8 @@
 #include "Organisms/Organisms.h"
 #include <ncurses.h>
 using namespace std;
-
-World::World(unsigned int X, unsigned int Y) :canvas(new Canvas(X,Y)) {}
+World::World(unsigned int X, unsigned int Y, unsigned int T) :canvas(new Canvas(X,Y)), currentTurn(T) {}
+World::World(unsigned int X, unsigned int Y) :World(X,Y,1) {}
 void World::create(char symbol, Pos pos) {
     switch(symbol){
         case HUMAN:{
@@ -80,20 +80,38 @@ template <class Organisms>
 void World::addOrganism(Pos pos) {
     canvas->organismsTable().add(new Organisms(pos,canvas));
 }
-void World::turn() {
+void World::turn(bool& wrd) {
+    Human* human = canvas->organismsTable().getHuman();
+    if(human != nullptr)
+        canvas->addInfoUp("kontrola czlowieka - strzalki, ");
+    canvas->addInfoUp("zapis - s, nastepna tura - spacja, powrot - b");
+    canvas->addInfoUp("Tura "+to_string(currentTurn));
     canvas->draw();
     canvas->organismsTable().sort();
     int input = -1;
     while(input != NEXT_TURN) {
         input = getch();
-        Human* human = canvas->organismsTable().getHuman();
-        if(input == ARROWS && human != nullptr)
-            human->control(input);
-        else if (input == NEXT_TURN)
-            for(int i = 0; i < canvas->organismsTable().size(); i++)
-                (*canvas)[i]->action();
-        else if (input == SAVE)
-            save(input);
+        switch(input){
+            case ARROWS:{
+                if(human!= nullptr)
+                    human->control(input);
+                break;
+            }
+            case NEXT_TURN:{
+                currentTurn++;
+                for(int i = 0; i < canvas->organismsTable().size(); i++)
+                    (*canvas)[i]->action();
+                break;
+            }
+            case SAVE:{
+                save(input);
+                break;
+            }
+            case BACK:{
+                wrd = false;
+                return;
+            }
+        }
     }
 }
 Canvas* World::getCanvas() {return canvas;}
@@ -107,7 +125,7 @@ void World::save(int& input) {
         printw("\n%i\n",save);
         printw("\n");
     }
-    canvas->organismsTable().save(save,canvas->getX(),canvas->getY());
+    canvas->organismsTable().save(save,canvas->getX(),canvas->getY(),currentTurn);
     input = NEXT_TURN;
 }
 World::~World() {

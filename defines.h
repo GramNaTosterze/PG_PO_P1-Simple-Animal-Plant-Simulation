@@ -12,6 +12,7 @@
 #define SAVE 's'
 #define LOAD 'l'
 #define NEW 'n'
+#define BACK 'b'
 #define ABILITY_TIMER 5
 
 enum {

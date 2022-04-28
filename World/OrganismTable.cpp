@@ -72,9 +72,9 @@ void OrganismTable::qsort(int l, int r) {
         qsort(i,r);
 }
 unsigned int OrganismTable::size() const{return currentSize;}
-void OrganismTable::save(int input,int x, int y) {
+void OrganismTable::save(int input,int x, int y, int turn) {
     ofstream save("save"+to_string(input)+".txt");
-    save<<x<<" "<<y<<'\n';
+    save<<x<<" "<<y<<'\n'<<turn<<'\n';
     for(int i = 0; i < currentSize; i++) {
         save<<table[i]<<'\n';
     }

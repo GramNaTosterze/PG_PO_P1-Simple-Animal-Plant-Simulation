@@ -9,7 +9,9 @@ using namespace std;
 class World {
     private:
     Canvas* canvas;
+    unsigned int currentTurn;
     public:
+    World(unsigned int, unsigned int, unsigned int);
     World(unsigned int, unsigned int);
     char randAnimal();
     char randPlant();
@@ -17,7 +19,7 @@ class World {
     void generate();
     template <class Organisms>
     void addOrganism(Pos);
-    void turn();
+    void turn(bool&);
     Canvas* getCanvas();
     void save(int&);
     void sort(int,int);

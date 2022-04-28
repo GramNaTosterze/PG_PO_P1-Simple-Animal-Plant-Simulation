@@ -18,6 +18,7 @@ int main () {
 
     initscr();
     while(session.sessionRunning()) {
+        clear();
         printw("l - wczytaj, n - nowa, Esc - zakoncz\n");
         switch(getch()) {
             case LOAD:{
@@ -36,7 +37,7 @@ int main () {
                 printw("rozmiaty swiata: ");
                 refresh();
                 scanw("%i %i",&x,&y);
-                session.newWorld(x,y);
+                session.newWorld(x,y,1);
                 session.rand();
                 break;
             }

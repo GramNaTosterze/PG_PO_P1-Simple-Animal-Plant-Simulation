@@ -4,8 +4,8 @@
 #include <ncurses.h>
 
 Session::Session(): running(true), created(false) {}
-void Session::newWorld(int x, int y) {
-    world = new World(x,y);
+void Session::newWorld(int x, int y, int turn) {
+    world = new World(x,y,turn);
     created = true;
 }
 bool Session::sessionRunning() {return running;}
@@ -13,14 +13,15 @@ void Session::end() {
     running = false;
     delete world;
     created = false;
-    }
+}
 bool Session::worldCreated() {return created;}
 void Session::loadWorld(int input) {
     ifstream load("save"+to_string(input)+".txt");
     if(load.is_open()) {
-        int x,y;
+        int x,y,turn;
         load>>x>>y;
-        newWorld(x,y);
+        load>>turn;
+        newWorld(x,y,turn);
         int i = 0;
         Organism* o;
         char symbol;
@@ -31,6 +32,7 @@ void Session::loadWorld(int input) {
             world->create(symbol,pos);
             o = world->getCanvas()->operator[](i);
             load>>o;
+            i++;
         }
     }
     else 
@@ -41,5 +43,5 @@ void Session::rand() {
     world->generate();
 }
 void Session::manage() {
-    world->turn();
+    world->turn(created);
 }

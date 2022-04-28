@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Canvas::Canvas(unsigned int X, unsigned int Y) : X(X), Y(Y), board(new Organism**[X]), organisms(X*Y){
+Canvas::Canvas(unsigned int X, unsigned int Y) : X(X), Y(Y), board(new Organism**[Y]), organisms(X*Y){
     for(int i = 0; i < Y; i++)
         board[i] = new Organism*[X];
 
@@ -66,8 +66,7 @@ void Canvas::draw() {
     clear();
     printw("Krzysztof Napiórkowski 191689\n");
     printw("Liczba Organizmów: %u\n",organismsTable().size());
-    char* up = &infoUp[0];
-    printw("%s",up);
+    printw("%s",infoUp.c_str());
     unsigned int x = getX(), y = getY();
     for(int i = 0; i <= y+1; i++) {
         for( int j = 0; j <= x+1; j++) {
@@ -82,8 +81,7 @@ void Canvas::draw() {
         }
         printw("\n");
     }
-    char* down = &infoDown[0];
-    printw("%s",down);
+    printw("%s",infoDown.c_str());
     cleanInfo();
     refresh();
 }

@@ -22,6 +22,6 @@ class OrganismTable {
     void clear();
     void qsort(int, int);
     void sort();
-    void save(int,int,int);
+    void save(int,int,int,int);
     unsigned int size() const;
 };

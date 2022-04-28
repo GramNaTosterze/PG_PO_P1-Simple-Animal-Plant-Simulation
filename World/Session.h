@@ -8,7 +8,7 @@ class Session{
     World* world;
     public:
     Session();
-    void newWorld(int, int);
+    void newWorld(int, int, int);
     bool sessionRunning();
     void end();
     bool worldCreated();
