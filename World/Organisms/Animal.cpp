@@ -85,4 +85,3 @@ void Animal::replace(Organism* one,Organism* two) {
     world->addInfoDown(one->getName()+" zabija stworzenie "+two->getName());
     world->organismsTable().remove(two);
 }
-Animal::~Animal() {}

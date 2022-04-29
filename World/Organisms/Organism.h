@@ -31,5 +31,4 @@ class Organism {
     bool operator<(const Organism&) const;
     friend ostream& operator<<(ostream&, Organism*);
     friend istream& operator>>(istream&, Organism*&);
-    ~Organism();
 };

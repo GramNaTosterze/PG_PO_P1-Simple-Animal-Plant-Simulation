@@ -19,4 +19,3 @@ istream& operator>>(istream& in, Organism*& organism) {
     in>> organism->strength>> organism->initiative>> organism->age;
     return in;
 }
-Organism::~Organism() {}

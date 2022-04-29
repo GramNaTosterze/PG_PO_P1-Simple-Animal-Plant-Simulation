@@ -34,6 +34,3 @@ char Plant::draw() {
 void Plant::replace(Organism* one, Organism* two) {
 
 }
-Plant::~Plant() {
-
-}

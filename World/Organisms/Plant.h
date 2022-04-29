@@ -14,5 +14,4 @@ class Plant : public Organism {
     void colision(Plant*) override;
     char draw() override;
     void replace(Organism*,Organism*) override;
-    ~Plant();
 };
