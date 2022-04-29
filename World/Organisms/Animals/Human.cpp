@@ -4,6 +4,9 @@
 
 using namespace std;
 Human::Human(Pos position, Canvas *canvas) : Animal(5,4,position,canvas,HUMAN,"Czlowiek",1), abilityTimer(0) {}
+void Human::addInstanceOf(Pos pos) {
+    world->organismsTable().add(new Human(pos,world));
+}
 void Human::control(int& input) {
     input = NEXT_TURN;
     getch();

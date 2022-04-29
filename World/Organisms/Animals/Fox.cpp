@@ -2,6 +2,9 @@
 #include "Fox.h"
 
 Fox::Fox(Pos position, Canvas *canvas): Animal(3,7,position,canvas,FOX,"Lisek",1) {}
+void Fox::addInstanceOf(Pos pos) {
+    world->organismsTable().add(new Fox(pos,world));
+}
 void Fox::move(int x, int y) {
     world->set(position,(Animal*)nullptr);
     Pos newPos = position;

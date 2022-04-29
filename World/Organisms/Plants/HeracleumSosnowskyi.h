@@ -1,4 +1,4 @@
-
+#pragma once
 #include "../Plant.h"
 
 class HeracleumSosnowskyi : public Plant{
@@ -6,5 +6,6 @@ class HeracleumSosnowskyi : public Plant{
     HeracleumSosnowskyi(Pos, Canvas*);
     void addInstanceOf(Pos) override;
     void action() override;
+    void colision(Human*);
     void colision(Animal*) override;
 };

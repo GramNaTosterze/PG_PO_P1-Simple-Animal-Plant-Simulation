@@ -6,6 +6,9 @@ CyberSheep::CyberSheep(Pos position, Canvas *canvas): Sheep(position,canvas), de
     symbol = CYBER_SHEEP;
     name = "Cyber Owca";
 }
+void CyberSheep::addInstanceOf(Pos pos) {
+    world->organismsTable().add(new CyberSheep(pos,world));
+}
 void CyberSheep::action() {
     if(destination == Pos(EMPTY_POS)) {
         Organism* sos = world->organismsTable().find(HERACLEUM_SOSNOWSKYI);
@@ -19,9 +22,26 @@ void CyberSheep::action() {
         Sheep::action();
     else {
         age++;
-        //exterminacja barszczu
+        int x = 0, y = 0;
+        if(destination.x > position.x)
+            x = 1;
+        else if(destination.x < position.x)
+            x = -1;
+        else if(destination.y < position.y)
+            y = -1;
+        else if(destination.y > position.y)
+            y = 1;
+        move(x,y);
     }
 }
 void CyberSheep::colision(Plant* other) {
-    Sheep::colision(other);
+    if(other->draw() == HERACLEUM_SOSNOWSKYI) {
+            world->set(other->getPosition(),nullptr);
+            world->addInfoDown(name+" pozbyla sie "+other->getName());
+            world->organismsTable().remove(other);
+            destination = Pos(EMPTY_POS);
+        world->set(position,this);
+    }
+    else
+        Sheep::colision(other);
 }

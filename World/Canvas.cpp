@@ -1,6 +1,7 @@
 
 #include <ncurses.h>
 #include "Canvas.h"
+#include "Organisms/Organism.h"
 #include "Organisms/Plant.h"
 #include "Organisms/Animal.h"
 #include "../defines.h"
@@ -84,4 +85,7 @@ void Canvas::draw() {
     printw("%s",infoDown.c_str());
     cleanInfo();
     refresh();
+}
+Canvas::~Canvas() {
+    delete[] board;
 }

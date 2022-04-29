@@ -24,4 +24,5 @@ class OrganismTable {
     void sort();
     void save(int,int,int,int);
     unsigned int size() const;
+    ~OrganismTable();
 };

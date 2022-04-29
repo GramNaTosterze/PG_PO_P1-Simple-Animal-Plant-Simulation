@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Organism.h"
+#include "Plant.h"
 
 class Animal : public Organism {
     protected:
@@ -10,6 +11,8 @@ class Animal : public Organism {
     void setPosition(Pos) override;
     void setStrength(unsigned int);
     void action() override;
+    void reproduce();
+    virtual void addInstanceOf(Pos) = 0;
     virtual void move(int, int);
     void colision(Animal*) override;
     void colision(Plant*) override;

@@ -30,4 +30,5 @@ class Canvas {
     unsigned int getY();
     void set(Pos pos, Organism* organism);
     void draw();
+    ~Canvas();
 };

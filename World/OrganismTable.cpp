@@ -17,7 +17,7 @@ void OrganismTable::add(Human* h) {
 }
 void OrganismTable::remove(Human* h) {
     human = nullptr;
-    remove((Organism*)human);
+    remove((Organism*)h);
 }
 void OrganismTable::add(Organism* a) {
     table[currentSize] = a;
@@ -79,4 +79,8 @@ void OrganismTable::save(int input,int x, int y, int turn) {
         save<<table[i]<<'\n';
     }
     save.close();
+}
+OrganismTable::~OrganismTable() {
+    delete[] table;
+
 }

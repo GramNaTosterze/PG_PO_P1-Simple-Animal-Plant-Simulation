@@ -37,6 +37,17 @@ void Animal::action() {
         }
     }
 }
+void Animal::reproduce() {
+    if(age > 0) {
+        Pos pos = world->nextPos(this->position);
+        if(pos.x != -1 && pos.y != -1) {
+            if((*world)[pos] == nullptr )
+                addInstanceOf(pos);
+            world->addInfoDown(name+" rozmnozyl sie");
+        }
+    }
+
+}
 void Animal::move(int x, int y) {
     world->set(position,(Animal*)nullptr);
     Pos newPos = position;
@@ -55,13 +66,15 @@ void Animal::move(int x, int y) {
         (*world)[newPos]->colision(this);
 }
 void Animal::colision(Animal* other) {
-    if(this->strength >= other->getStrength())
+    if(symbol == other->draw())
+        reproduce();
+    else if(this->strength >= other->getStrength())
         replace(this,other);
     else
         replace(other,this);
 }
 void Animal::colision(Plant* other) {
-
+    replace(this,other);
 }
 char Animal::draw() {
     return symbol;

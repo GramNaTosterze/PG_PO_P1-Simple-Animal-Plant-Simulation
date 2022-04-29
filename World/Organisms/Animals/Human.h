@@ -8,6 +8,7 @@ class Human : public Animal {
     int abilityTimer;
     public:
     Human(Pos, Canvas*);
+    void addInstanceOf(Pos) override;
     void control(int&);
     void action() override;
     void calopalenie();
