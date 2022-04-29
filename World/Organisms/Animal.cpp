@@ -38,7 +38,7 @@ void Animal::action() {
     }
 }
 void Animal::reproduce() {
-    if(age > 0) {
+    if(age > 0 && rand()%3 == 1) {
         Pos pos = world->nextPos(this->position);
         if(pos.x != -1 && pos.y != -1) {
             if((*world)[pos] == nullptr )

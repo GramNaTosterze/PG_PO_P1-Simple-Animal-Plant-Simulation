@@ -34,7 +34,7 @@ int main () {
                 break;
             } 
             case NEW:{
-                printw("rozmiaty swiata: ");
+                printw("rozmiary swiata: ");
                 refresh();
                 scanw("%i %i",&x,&y);
                 session.newWorld(x,y,1);
