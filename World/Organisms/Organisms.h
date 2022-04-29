@@ -8,9 +8,9 @@
 #include "Animals/Turtle.h"
 #include "Animals/Wolf.h"
 
-#include "Plants/AtropaBelladonna.h"
+#include "Plants/DeadlyNightshade.h"
 #include "Plants/Dandelion.h"
 #include "Plants/Grass.h"
 #include "Plants/Guarana.h"
-#include "Plants/HeracleumSosnowskyi.h"
+#include "Plants/SosnowskysHogweed.h"
 

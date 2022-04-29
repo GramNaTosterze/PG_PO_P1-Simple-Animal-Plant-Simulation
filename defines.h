@@ -27,8 +27,8 @@ enum {
     GRASS = '.',
     DANDELION = '*',
     GUARANA = '+',
-    ATROPA_BELLADONNA = '!',
-    HERACLEUM_SOSNOWSKYI = 'x'
+    DEADLY_NIGHTSHADE = '!',
+    SOSNOWSKYS_HOGWEED = 'x'
 };
 enum DIRECTIONS {
     UP=0,

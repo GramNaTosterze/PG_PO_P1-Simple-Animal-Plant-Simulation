@@ -34,8 +34,8 @@ void World::create(char symbol, Pos pos) {
             addOrganism<Wolf>(pos);
             return;
         }
-        case ATROPA_BELLADONNA:{
-            addOrganism<AtropaBelladonna>(pos);
+        case DEADLY_NIGHTSHADE:{
+            addOrganism<DeadlyNightshade>(pos);
             return;
         }
         case DANDELION:{
@@ -50,8 +50,8 @@ void World::create(char symbol, Pos pos) {
             addOrganism<Guarana>(pos);
             return;
         }
-        case HERACLEUM_SOSNOWSKYI:{
-            addOrganism<HeracleumSosnowskyi>(pos);
+        case SOSNOWSKYS_HOGWEED:{
+            addOrganism<SosnowskysHogweed>(pos);
             return;
         }
     }
@@ -63,7 +63,7 @@ char World::randAnimal() {
     return animals[r];
 }
 char World::randPlant() {
-    char plants[5] = {GRASS,DANDELION,GUARANA,ATROPA_BELLADONNA,HERACLEUM_SOSNOWSKYI};
+    char plants[5] = {GRASS,DANDELION,GUARANA,DEADLY_NIGHTSHADE,SOSNOWSKYS_HOGWEED};
     int r = rand()%5;
     return plants[r];
 }

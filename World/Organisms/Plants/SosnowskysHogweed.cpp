@@ -1,12 +1,12 @@
 
-#include "HeracleumSosnowskyi.h"
+#include "SosnowskysHogweed.h"
 #include "../Animals/CyberSheep.h"
 
-HeracleumSosnowskyi::HeracleumSosnowskyi(Pos position, Canvas* canvas): Plant(10,position,canvas,HERACLEUM_SOSNOWSKYI,"Barszcz Sosnowskiego") {}
-void HeracleumSosnowskyi::addInstanceOf(Pos pos) {
-    world->organismsTable().add(new HeracleumSosnowskyi(pos,world));
+SosnowskysHogweed::SosnowskysHogweed(Pos position, Canvas* canvas): Plant(10,position,canvas,SOSNOWSKYS_HOGWEED,"Barszcz Sosnowskiego") {}
+void SosnowskysHogweed::addInstanceOf(Pos pos) {
+    world->organismsTable().add(new SosnowskysHogweed(pos,world));
 }
-void HeracleumSosnowskyi::action() {
+void SosnowskysHogweed::action() {
     Organism* tmp;
 
     for(int i = (position.x-1 == -1 ? 0 : position.x-1); i < (position.x+2 == world->getX()? world->getX() : position.x+2); i++)
@@ -18,7 +18,7 @@ void HeracleumSosnowskyi::action() {
     Plant::spread();
     age++;
 }
-void HeracleumSosnowskyi::colision(Animal* other) {
+void SosnowskysHogweed::colision(Animal* other) {
     if(other->draw() == CYBER_SHEEP) {
         other->colision(this);
         return;

@@ -1,9 +1,9 @@
 #pragma once
 #include "../Plant.h"
 
-class HeracleumSosnowskyi : public Plant{
+class SosnowskysHogweed : public Plant{
     public:
-    HeracleumSosnowskyi(Pos, Canvas*);
+    SosnowskysHogweed(Pos, Canvas*);
     void addInstanceOf(Pos) override;
     void action() override;
     void colision(Human*);

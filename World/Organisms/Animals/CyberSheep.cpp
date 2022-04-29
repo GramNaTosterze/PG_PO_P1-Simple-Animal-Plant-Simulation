@@ -11,7 +11,7 @@ void CyberSheep::addInstanceOf(Pos pos) {
 }
 void CyberSheep::action() {
     if(destination == Pos(EMPTY_POS)) {
-        Organism* sos = world->organismsTable().find(HERACLEUM_SOSNOWSKYI);
+        Organism* sos = world->organismsTable().find(SOSNOWSKYS_HOGWEED);
         if(sos != nullptr) {
             world->addInfoDown(name+" wyweszyla "+sos->getName()+"\n");
             destination = sos->getPosition();
@@ -35,7 +35,7 @@ void CyberSheep::action() {
     }
 }
 void CyberSheep::colision(Plant* other) {
-    if(other->draw() == HERACLEUM_SOSNOWSKYI) {
+    if(other->draw() == SOSNOWSKYS_HOGWEED) {
             world->set(other->getPosition(),nullptr);
             world->addInfoDown(name+" pozbyla sie "+other->getName());
             world->organismsTable().remove(other);

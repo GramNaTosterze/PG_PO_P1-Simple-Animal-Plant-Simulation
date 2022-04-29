@@ -1,9 +1,9 @@
 
 #include "../Plant.h"
 
-class AtropaBelladonna : public Plant{
+class DeadlyNightshade : public Plant{
     public:
-    AtropaBelladonna(Pos, Canvas*);
+    DeadlyNightshade(Pos, Canvas*);
     void addInstanceOf(Pos) override;
     void colision(Animal*) override;
 };
